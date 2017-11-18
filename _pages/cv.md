@@ -9,6 +9,11 @@ redirect_from:
 
 {% include base_path %}
 
+[Click to View My CV in PDF](https://prinsphield.github.io/CV/cv.pdf)
+
+Address: Peking University, Haidian District, Beijing, China, 100871
+Phone: (86)18210929266
+Email: xiaotaihong@pku.edu.cn  xiaotaihong@126.com
 
 Research Interests
 ======
