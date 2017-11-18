@@ -1,12 +1,11 @@
 ---
 title: "An Integrated Learning Framework for Pedestrian Tracking"
 collection: publications
-permalink: https://link.springer.com/chapter/10.1007%2F978-3-319-63315-2_9
-excerpt: 'This paper is about the number 1. The number 2 is left for future work.'
+permalink: /publication/ICIC-2017-ILFPT
 date: 2017-07-21
-venue: 'Journal 1'
+venue: 'International Conference on Intelligent Computing 2017'
 paperurl: 'https://link.springer.com/chapter/10.1007%2F978-3-319-63315-2_9'
-citation: 'Taihong Xiao and Jinwen Ma. &quot; International Conference on Intelligent Computing (ICIC) 2017 &quot; <i>Springer, Cham</i>.'
+citation: 'Taihong Xiao and Jinwen Ma. <i>International Conference on Intelligent Computing</i> (ICIC) 2017. Springer, Cham.'
 ---
 
 [Paper](https://link.springer.com/chapter/10.1007%2F978-3-319-63315-2_9)
