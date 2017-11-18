@@ -1,11 +1,11 @@
 ---
-layout: archive
+<!-- layout: archive -->
 title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
 
-[[Google Scholar]]({author.googlescholar})
+[[Google Scholar]]({https://scholar.google.com/citations?user=Op_tr2IAAAAJ})
 [[DBLP]](http://dblp.uni-trier.de/pers/hd/x/Xiao:Taihong)
 
 {% if author.googlescholar %}
@@ -14,6 +14,6 @@ author_profile: true
 
 {% include base_path %}
 
-{% for post in site.publications reversed %}
+{% for post in site.publications %}
   {% include archive-single.html %}
 {% endfor %}
