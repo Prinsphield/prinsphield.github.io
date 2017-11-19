@@ -7,8 +7,6 @@ tag:
 use_math: true
 ---
 
-{% include toc %}
-
 <div style="display:none">
 $$\DeclareMathOperator{\E}{E}$$
 $$\DeclareMathOperator{\KL}{KL}$$
