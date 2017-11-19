@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-11-19T03:57:57-08:00</updated><id>http://localhost:4000/</id><title type="html">Taihong Xiao</title><subtitle>Master Student at Peking University</subtitle><author><name>Taihong Xiao</name><email>xiaotaihong@pku.edu.cn</email></author><entry><title type="html">An Overview on Optimization Algorithms in Deep Learning 2</title><link href="http://localhost:4000/posts/2016/02/overview_opt_alg_deep_learning2/" rel="alternate" type="text/html" title="An Overview on Optimization Algorithms in Deep Learning 2" /><published>2016-02-04T00:00:00-08:00</published><updated>2016-02-04T00:00:00-08:00</updated><id>http://localhost:4000/posts/2016/02/overview_opt_alg_deep_learning2</id><content type="html" xml:base="http://localhost:4000/posts/2016/02/overview_opt_alg_deep_learning2/">&lt;div style=&quot;display:none&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-11-19T04:11:32-08:00</updated><id>http://localhost:4000/</id><title type="html">Taihong Xiao</title><subtitle>Master Student at Peking University</subtitle><author><name>Taihong Xiao</name><email>xiaotaihong@pku.edu.cn</email></author><entry><title type="html">An Overview on Optimization Algorithms in Deep Learning 2</title><link href="http://localhost:4000/posts/2016/02/overview_opt_alg_deep_learning2/" rel="alternate" type="text/html" title="An Overview on Optimization Algorithms in Deep Learning 2" /><published>2016-02-04T00:00:00-08:00</published><updated>2016-02-04T00:00:00-08:00</updated><id>http://localhost:4000/posts/2016/02/overview_opt_alg_deep_learning2</id><content type="html" xml:base="http://localhost:4000/posts/2016/02/overview_opt_alg_deep_learning2/">&lt;div style=&quot;display:none&quot;&gt;
 $$\DeclareMathOperator{\E}{E}$$
 $$\DeclareMathOperator{\RMS}{RMS}$$
 &lt;/div&gt;
@@ -255,20 +255,20 @@ In this case, the MLE gives an estimate&lt;/p&gt;
 &lt;p&gt;We also assume the prior of $w$ is another Gaussian distribution parametrized by mean $0$ and variance matrix $\Lambda_0=\lambda_0I$. With the prior specified, we can now determine the posterior distribution over the model parameters.&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
-\begin{aligned\*}
+\begin{aligned*}
 p(w|\mathscr{X},y) &amp;\propto p(y|\mathscr{X},w)p(w)\\
 &amp;\propto \exp\left(-{1\over2}(y-\mathscr{X}w)^T(y-\mathscr{X}w)\right)\exp\left(-{1\over2}w^T\Lambda_0^{-1}w\right)\\
 &amp;\propto \exp\left(-{1\over2}\left(-2y^T\mathscr{X}w + w^T\mathscr{X}^T\mathscr{X}w + w^T\Lambda_0^{-1}w\right)\right)\\
 &amp;\propto \exp\left(-{1\over2}(w-\mu_N)^T\Lambda_N^{-1}(w-\mu_N)\right).
-\end{aligned\*} %]]&gt;&lt;/script&gt;
+\end{aligned*} %]]&gt;&lt;/script&gt;
 
 &lt;p&gt;where&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
-\begin{align\*}
+\begin{align*}
 \Lambda_N &amp;= (\mathscr{X}^T\mathscr{X} + \Lambda_0^{-1})^{-1}\\
 \mu_N &amp;= \Lambda_N\mathscr{X}^Ty
-\end{align\*} %]]&gt;&lt;/script&gt;
+\end{align*} %]]&gt;&lt;/script&gt;
 
 &lt;p&gt;Thus the MAP estimate of the $w$ becomes&lt;/p&gt;
 
@@ -323,7 +323,7 @@ p(w|\mathscr{X},y) &amp;\propto p(y|\mathscr{X},w)p(w)\\
 &lt;p&gt;From the above analysis, we can see that the MAP estimate reduces the variance at the expense of increasing the bias. However, the goal is to prevent overfitting.&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
-\begin{align}
+\begin{aligned}
 a &amp;= b\\
 c &amp;= d
-\end{align} %]]&gt;&lt;/script&gt;</content><author><name>Taihong Xiao</name><email>xiaotaihong@pku.edu.cn</email></author><category term="machine learning" /><summary type="html">$$\DeclareMathOperator{\E}{E}$$ $$\DeclareMathOperator{\KL}{KL}$$ $$\DeclareMathOperator{\Var}{Var}$$ $$\DeclareMathOperator{\Bias}{Bias}$$ As we know, maximum likelihood estimation (MLE) and Bayes estimation (BE) are two kinds of methods for parameter estimation in machine learning. However, they are on behalf of different view but closely interconnected with each other. In this article, I would like to talk about the differences and connections of them.</summary></entry></feed>
+\end{aligned} %]]&gt;&lt;/script&gt;</content><author><name>Taihong Xiao</name><email>xiaotaihong@pku.edu.cn</email></author><category term="machine learning" /><summary type="html">$$\DeclareMathOperator{\E}{E}$$ $$\DeclareMathOperator{\KL}{KL}$$ $$\DeclareMathOperator{\Var}{Var}$$ $$\DeclareMathOperator{\Bias}{Bias}$$ As we know, maximum likelihood estimation (MLE) and Bayes estimation (BE) are two kinds of methods for parameter estimation in machine learning. However, they are on behalf of different view but closely interconnected with each other. In this article, I would like to talk about the differences and connections of them.</summary></entry></feed>

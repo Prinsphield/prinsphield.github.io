@@ -7,22 +7,6 @@ tag:
 use_math: true
 ---
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
-
-<script>
-  $("script[type='math/tex']").replaceWith(function() {
-            var tex = $(this).text();
-                  return katex.renderToString(tex, {displayMode: false});
-                    });
-
-  $("script[type='math/tex; mode=display']").replaceWith(function() {
-            var tex = $(this).html();
-                  return katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
-                    });
-</script>
-
 
 <div style="display:none">
 $$\DeclareMathOperator{\E}{E}$$
@@ -140,21 +124,21 @@ $$
 We also assume the prior of $w$ is another Gaussian distribution parametrized by mean $0$ and variance matrix $\Lambda_0=\lambda_0I$. With the prior specified, we can now determine the posterior distribution over the model parameters.
 
 $$
-\begin{aligned\*}
+\begin{aligned*}
 p(w|\mathscr{X},y) &\propto p(y|\mathscr{X},w)p(w)\\
 &\propto \exp\left(-{1\over2}(y-\mathscr{X}w)^T(y-\mathscr{X}w)\right)\exp\left(-{1\over2}w^T\Lambda_0^{-1}w\right)\\
 &\propto \exp\left(-{1\over2}\left(-2y^T\mathscr{X}w + w^T\mathscr{X}^T\mathscr{X}w + w^T\Lambda_0^{-1}w\right)\right)\\
 &\propto \exp\left(-{1\over2}(w-\mu_N)^T\Lambda_N^{-1}(w-\mu_N)\right).
-\end{aligned\*}
+\end{aligned*}
 $$
 
 where
 
 $$
-\begin{align\*}
+\begin{align*}
 \Lambda_N &= (\mathscr{X}^T\mathscr{X} + \Lambda_0^{-1})^{-1}\\
 \mu_N &= \Lambda_N\mathscr{X}^Ty
-\end{align\*}
+\end{align*}
 $$
 
 Thus the MAP estimate of the $w$ becomes
@@ -222,8 +206,8 @@ From the above analysis, we can see that the MAP estimate reduces the variance a
 
 
 $$
-\begin{align}
+\begin{aligned}
 a &= b\\
 c &= d
-\end{align}
+\end{aligned}
 $$
