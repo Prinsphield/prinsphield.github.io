@@ -135,7 +135,7 @@ where
 
 $$
 \begin{align*}
-\Lambda_N &= (\mathscr{X}^T\mathscr{X} + \Lambda_0^{-1})^{-1}\\\\
+\Lambda_N &= (\mathscr{X}^T\mathscr{X} + \Lambda_0^{-1})^{-1}\\
 \mu_N &= \Lambda_N\mathscr{X}^Ty
 \end{align*}
 $$
