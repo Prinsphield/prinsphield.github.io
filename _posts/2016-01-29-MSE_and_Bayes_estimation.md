@@ -134,47 +134,11 @@ $$
 where
 
 $$
-\begin{aligned}
-\Lambda_N &= (\mathscr{X}^T\mathscr{X} + \Lambda_0^{-1})^{-1}\\\\
-\mu_N &= \Lambda_N\mathscr{X}^Ty
-\end{aligned}
-$$
-
-$$
-\begin{aligned*}
-\Lambda_N &= (\mathscr{X}^T\mathscr{X} + \Lambda_0^{-1})^{-1}\\\\
-\mu_N &= \Lambda_N\mathscr{X}^Ty
-\end{aligned*}
-$$
-
-$$
-\begin{aligned\*}
-\Lambda_N &= (\mathscr{X}^T\mathscr{X} + \Lambda_0^{-1})^{-1}\\\\
-\mu_N &= \Lambda_N\mathscr{X}^Ty
-\end{aligned\*}
-$$
-
-$$
-\begin{align}
-\Lambda_N &= (\mathscr{X}^T\mathscr{X} + \Lambda_0^{-1})^{-1}\\\\
-\mu_N &= \Lambda_N\mathscr{X}^Ty
-\end{align}
-$$
-
-$$
 \begin{align*}
 \Lambda_N &= (\mathscr{X}^T\mathscr{X} + \Lambda_0^{-1})^{-1}\\\\
 \mu_N &= \Lambda_N\mathscr{X}^Ty
 \end{align*}
 $$
-
-$$
-\begin{align\*}
-\Lambda_N &= (\mathscr{X}^T\mathscr{X} + \Lambda_0^{-1})^{-1}\\\\
-\mu_N &= \Lambda_N\mathscr{X}^Ty
-\end{align\*}
-$$
-
 
 Thus the MAP estimate of the $w$ becomes
 
