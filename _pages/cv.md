@@ -5,6 +5,7 @@ permalink: /cv/
 author_profile: true
 redirect_from:
   - /resume
+use_math: true
 ---
 
 {% include base_path %}
@@ -64,7 +65,7 @@ Talks
 
 Honors and Awards
 ======
-* National Scholarship, Peking University, 2015-2017 (about $1\%$, {\bf for 3 consecutive years})
+* National Scholarship, Peking University, 2015-2017 (about 1%, <b>for 3 consecutive years</b>)
 * Excellent Academic Performance Award, Peking University, 2016
 * Outstanding Thesis Award in Shandong Province, Shandong University, 2015
 * National Encouragement Scholarship, Shandong University, 2013 (about 10%)

@@ -3,6 +3,7 @@
 title: "Publications"
 permalink: /publications/
 author_profile: true
+use_math: true
 ---
 
 [[Google Scholar]]({https://scholar.google.com/citations?user=Op_tr2IAAAAJ})
