@@ -40,8 +40,8 @@ Back to our optimization process, we want to accelerate progress along dimension
 
 $$
 \begin{align*}
-\Delta \theta &\leftarrow \rho\Delta \theta + \eta g\\
-\theta &\leftarrow \theta - \Delta \theta
+\Delta \theta \leftarrow \rho\Delta \theta + \eta g\\
+\theta \leftarrow \theta - \Delta \theta
 \end{align*}
 $$
 
@@ -49,8 +49,8 @@ which is mathematically equivalent to
 
 $$
 \begin{align*}
-\Delta \theta &\leftarrow \rho\Delta \theta - \eta g\\
-\theta &\leftarrow \theta + \Delta \theta
+\Delta \theta \leftarrow \rho\Delta \theta - \eta g\\
+\theta \leftarrow \theta + \Delta \theta
 \end{align*}
 $$
 

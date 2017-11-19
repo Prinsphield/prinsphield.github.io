@@ -125,10 +125,10 @@ We also assume the prior of $w$ is another Gaussian distribution parametrized by
 
 $$
 \begin{align*}
-p(w|\mathscr{X},y) &\propto p(y|\mathscr{X},w)p(w)\\
-&\propto \exp\left(-{1\over2}(y-\mathscr{X}w)^T(y-\mathscr{X}w)\right)\exp\left(-{1\over2}w^T\Lambda_0^{-1}w\right)\\
-&\propto \exp\left(-{1\over2}\left(-2y^T\mathscr{X}w + w^T\mathscr{X}^T\mathscr{X}w + w^T\Lambda_0^{-1}w\right)\right)\\
-&\propto \exp\left(-{1\over2}(w-\mu_N)^T\Lambda_N^{-1}(w-\mu_N)\right).
+p(w|\mathscr{X},y) \propto p(y|\mathscr{X},w)p(w)\\
+\propto \exp\left(-{1\over2}(y-\mathscr{X}w)^T(y-\mathscr{X}w)\right)\exp\left(-{1\over2}w^T\Lambda_0^{-1}w\right)\\
+\propto \exp\left(-{1\over2}\left(-2y^T\mathscr{X}w + w^T\mathscr{X}^T\mathscr{X}w + w^T\Lambda_0^{-1}w\right)\right)\\
+\propto \exp\left(-{1\over2}(w-\mu_N)^T\Lambda_N^{-1}(w-\mu_N)\right).
 \end{align*}
 $$
 
@@ -136,8 +136,8 @@ where
 
 $$
 \begin{align*}
-\Lambda_N &= (\mathscr{X}^T\mathscr{X} + \Lambda_0^{-1})^{-1}\\
-\mu_N &= \Lambda_N\mathscr{X}^Ty
+\Lambda_N = (\mathscr{X}^T\mathscr{X} + \Lambda_0^{-1})^{-1}\\
+\mu_N = \Lambda_N\mathscr{X}^Ty
 \end{align*}
 $$
 
@@ -157,12 +157,12 @@ In order to derive the bias of the MAP estimate, we need to evaluate the expecta
 
 $$
 \begin{align*}
-\E(\hat{w}_{MAP}) &= E(\Lambda_N \mathscr{X}^Ty)\\
-&= \E(\Lambda_N \mathscr{X}^T(\mathscr{X}w + \epsilon))\\
-&= \Lambda_N(\mathscr{X}^T\mathscr{X}w) + \Lambda_N\mathscr{X}^T \E(\epsilon)\\
-&= (\mathscr{X}^T\mathscr{X} + \lambda_0^{-1}I)^{-1}\mathscr{X}^T\mathscr{X}w\\
-&= (\mathscr{X}^T\mathscr{X} + \lambda_0^{-1}I)^{-1} (\mathscr{X}^T\mathscr{X} + \lambda_0^{-1}I - \lambda_0^{-1}I)w\\
-&= (I - (\lambda_0\mathscr{X}^T\mathscr{X} + I)^{-1} )w
+\E(\hat{w}_{MAP}) = E(\Lambda_N \mathscr{X}^Ty)\\
+= \E(\Lambda_N \mathscr{X}^T(\mathscr{X}w + \epsilon))\\
+= \Lambda_N(\mathscr{X}^T\mathscr{X}w) + \Lambda_N\mathscr{X}^T \E(\epsilon)\\
+= (\mathscr{X}^T\mathscr{X} + \lambda_0^{-1}I)^{-1}\mathscr{X}^T\mathscr{X}w\\
+= (\mathscr{X}^T\mathscr{X} + \lambda_0^{-1}I)^{-1} (\mathscr{X}^T\mathscr{X} + \lambda_0^{-1}I - \lambda_0^{-1}I)w\\
+= (I - (\lambda_0\mathscr{X}^T\mathscr{X} + I)^{-1} )w
 \end{align*}
 $$
 
@@ -178,11 +178,11 @@ Before computing the variance, we need to compute
 
 $$
 \begin{align*}
-\E(\hat{w}_{MAP}\hat{w}_{MAP}^T) &= \E(\Lambda_N \mathscr{X}^T yy^T \mathscr{X} \Lambda_N)\\
-&= \E(\Lambda_N \mathscr{X}^T (\mathscr{X}w+\epsilon)(\mathscr{X}w+\epsilon)^T \mathscr{X} \Lambda_N) \\
-&= \Lambda_N \mathscr{X}^T\mathscr{X}ww^T\mathscr{X}^T\mathscr{X}\Lambda_N + \Lambda_N \mathscr{X}^T\E(\epsilon\epsilon^T)\mathscr{X}\Lambda_N \\
-&= \Lambda_N \mathscr{X}^T\mathscr{X}ww^T\mathscr{X}^T\mathscr{X}\Lambda_N + \Lambda_N \mathscr{X}^T\mathscr{X}\Lambda_N \\
-&= \E(\hat{w}_{MAP})\E(\hat{w}_{MAP})^T + \Lambda_N \mathscr{X}^T\mathscr{X}\Lambda_N.
+\E(\hat{w}_{MAP}\hat{w}_{MAP}^T) = \E(\Lambda_N \mathscr{X}^T yy^T \mathscr{X} \Lambda_N)\\
+= \E(\Lambda_N \mathscr{X}^T (\mathscr{X}w+\epsilon)(\mathscr{X}w+\epsilon)^T \mathscr{X} \Lambda_N) \\
+= \Lambda_N \mathscr{X}^T\mathscr{X}ww^T\mathscr{X}^T\mathscr{X}\Lambda_N + \Lambda_N \mathscr{X}^T\E(\epsilon\epsilon^T)\mathscr{X}\Lambda_N \\
+= \Lambda_N \mathscr{X}^T\mathscr{X}ww^T\mathscr{X}^T\mathscr{X}\Lambda_N + \Lambda_N \mathscr{X}^T\mathscr{X}\Lambda_N \\
+= \E(\hat{w}_{MAP})\E(\hat{w}_{MAP})^T + \Lambda_N \mathscr{X}^T\mathscr{X}\Lambda_N.
 \end{align*}
 $$
 
@@ -190,9 +190,9 @@ Therefore, the variance of the MAP estimate of our linear regression model is gi
 
 $$
 \begin{align*}
-\Var(\hat{w}_{MAP}) &= \E(\hat{w}_{MAP}\hat{w}_{MAP}^T) - \E(\hat{w}_{MAP})\E(\hat{w}_{MAP})^T\\
-&= \Lambda_N \mathscr{X}^T\mathscr{X}\Lambda_N\\
-&= (\mathscr{X}^T\mathscr{X} + \lambda_0^{-1}I)^{-1}\mathscr{X}^T \mathscr{X}(\mathscr{X}^T\mathscr{X} + \lambda_0^{-1}I)^{-1}. \tag 4 \label{eq-4}
+\Var(\hat{w}_{MAP}) = \E(\hat{w}_{MAP}\hat{w}_{MAP}^T) - \E(\hat{w}_{MAP})\E(\hat{w}_{MAP})^T\\
+= \Lambda_N \mathscr{X}^T\mathscr{X}\Lambda_N\\
+= (\mathscr{X}^T\mathscr{X} + \lambda_0^{-1}I)^{-1}\mathscr{X}^T \mathscr{X}(\mathscr{X}^T\mathscr{X} + \lambda_0^{-1}I)^{-1}. \tag 4 \label{eq-4}
 \end{align*}
 $$
 
@@ -206,7 +206,7 @@ From the above analysis, we can see that the MAP estimate reduces the variance a
 
 $$
 \begin{align}
-a = b\\
-c = d
+a &= b\\
+c &= d
 \end{align}
 $$
