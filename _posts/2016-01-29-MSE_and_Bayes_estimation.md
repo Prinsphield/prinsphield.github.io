@@ -7,13 +7,13 @@ tag:
 use_math: true
 ---
 
-
 <div style="display:none">
 $$\DeclareMathOperator{\E}{E}$$
 $$\DeclareMathOperator{\KL}{KL}$$
 $$\DeclareMathOperator{\Var}{Var}$$
 $$\DeclareMathOperator{\Bias}{Bias}$$
 </div>
+
 As we know, maximum likelihood estimation (MLE) and Bayes estimation (BE) are two kinds of methods for parameter estimation in machine learning. However, they are on behalf of different view but closely interconnected with each other. In this article, I would like to talk about the differences and connections of them.
 
 ## Maximum Likelihood Estimation
@@ -124,12 +124,12 @@ $$
 We also assume the prior of $w$ is another Gaussian distribution parametrized by mean $0$ and variance matrix $\Lambda_0=\lambda_0I$. With the prior specified, we can now determine the posterior distribution over the model parameters.
 
 $$
-\begin{align}
+\begin{align*}
 p(w|\mathscr{X},y) &\propto p(y|\mathscr{X},w)p(w)\\
 &\propto \exp\left(-{1\over2}(y-\mathscr{X}w)^T(y-\mathscr{X}w)\right)\exp\left(-{1\over2}w^T\Lambda_0^{-1}w\right)\\
 &\propto \exp\left(-{1\over2}\left(-2y^T\mathscr{X}w + w^T\mathscr{X}^T\mathscr{X}w + w^T\Lambda_0^{-1}w\right)\right)\\
 &\propto \exp\left(-{1\over2}(w-\mu_N)^T\Lambda_N^{-1}(w-\mu_N)\right).
-\end{align}
+\end{align*}
 $$
 
 where
@@ -189,11 +189,11 @@ $$
 Therefore, the variance of the MAP estimate of our linear regression model is given by
 
 $$
-\begin{align}
+\begin{align*}
 \Var(\hat{w}_{MAP}) &= \E(\hat{w}_{MAP}\hat{w}_{MAP}^T) - \E(\hat{w}_{MAP})\E(\hat{w}_{MAP})^T\\
 &= \Lambda_N \mathscr{X}^T\mathscr{X}\Lambda_N\\
 &= (\mathscr{X}^T\mathscr{X} + \lambda_0^{-1}I)^{-1}\mathscr{X}^T \mathscr{X}(\mathscr{X}^T\mathscr{X} + \lambda_0^{-1}I)^{-1}. \tag 4 \label{eq-4}
-\end{align}
+\end{align*}
 $$
 
 It is perhaps difficult to compare \eqref{eq-3} and \eqref{eq-4}. But if we take a look at one-dimensional case, it becomes easier to see that, as long as $\lambda_0 >1$,
@@ -205,9 +205,3 @@ $$
 From the above analysis, we can see that the MAP estimate reduces the variance at the expense of increasing the bias. However, the goal is to prevent overfitting.
 
 
-$$
-\begin{aligned}
-a &= b\\
-c &= d
-\end{aligned}
-$$
