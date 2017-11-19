@@ -123,15 +123,22 @@ $$
 We also assume the prior of $w$ is another Gaussian distribution parametrized by mean $0$ and variance matrix $\Lambda_0=\lambda_0I$. With the prior specified, we can now determine the posterior distribution over the model parameters.
 
 $$
-\begin{align\*}
+\begin{aligned\*}
 p(w|\mathscr{X},y) &\propto p(y|\mathscr{X},w)p(w)\\
 &\propto \exp\left(-{1\over2}(y-\mathscr{X}w)^T(y-\mathscr{X}w)\right)\exp\left(-{1\over2}w^T\Lambda_0^{-1}w\right)\\
 &\propto \exp\left(-{1\over2}\left(-2y^T\mathscr{X}w + w^T\mathscr{X}^T\mathscr{X}w + w^T\Lambda_0^{-1}w\right)\right)\\
 &\propto \exp\left(-{1\over2}(w-\mu_N)^T\Lambda_N^{-1}(w-\mu_N)\right).
-\end{align\*}
+\end{aligned\*}
 $$
 
 where
+
+$$
+\begin{aligned}
+\Lambda_N &= (\mathscr{X}^T\mathscr{X} + \Lambda_0^{-1})^{-1}\\
+\mu_N &= \Lambda_N\mathscr{X}^Ty
+\end{aligned}
+$$
 
 $$
 \begin{aligned*}
@@ -139,6 +146,35 @@ $$
 \mu_N &= \Lambda_N\mathscr{X}^Ty
 \end{aligned*}
 $$
+
+$$
+\begin{aligned\*}
+\Lambda_N &= (\mathscr{X}^T\mathscr{X} + \Lambda_0^{-1})^{-1}\\
+\mu_N &= \Lambda_N\mathscr{X}^Ty
+\end{aligned\*}
+$$
+
+$$
+\begin{align}
+\Lambda_N &= (\mathscr{X}^T\mathscr{X} + \Lambda_0^{-1})^{-1}\\
+\mu_N &= \Lambda_N\mathscr{X}^Ty
+\end{align}
+$$
+
+$$
+\begin{align*}
+\Lambda_N &= (\mathscr{X}^T\mathscr{X} + \Lambda_0^{-1})^{-1}\\
+\mu_N &= \Lambda_N\mathscr{X}^Ty
+\end{align*}
+$$
+
+$$
+\begin{align\*}
+\Lambda_N &= (\mathscr{X}^T\mathscr{X} + \Lambda_0^{-1})^{-1}\\
+\mu_N &= \Lambda_N\mathscr{X}^Ty
+\end{align\*}
+$$
+
 
 Thus the MAP estimate of the $w$ becomes
 
