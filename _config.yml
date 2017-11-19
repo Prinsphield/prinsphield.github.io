@@ -141,6 +141,7 @@ exclude:
   - Rakefile
   - README
   - tmp
+  - .jekyll-metadata
 keep_files:
   - .git
   - .svn
