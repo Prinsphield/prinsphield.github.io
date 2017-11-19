@@ -18,6 +18,9 @@ gem "jekyll-remote-theme"
 # gem "jekyll"
 
 gem "wdm", "~> 0.1.0" if Gem.win_platform?
+gem 'pygments.rb', '~> 0.2.12'
+gem 'kramdown', '~> 0.13'
+gem 'RedCloth', '~> 4.2.9'
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
