@@ -1,0 +1,477 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+<meta charset="utf-8">
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>翻墙方法总结 - Taihong Xiao</title>
+
+
+
+
+
+
+
+<meta property="og:locale" content="en-US">
+<meta property="og:site_name" content="Taihong Xiao">
+<meta property="og:title" content="翻墙方法总结">
+
+
+  <link rel="canonical" href="http://localhost:4000/posts/2016/02/over_GFW">
+  <meta property="og:url" content="http://localhost:4000/posts/2016/02/over_GFW">
+
+
+
+  <meta property="og:description" content="hosts文件位置">
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2016-02-02T00:00:00-08:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Taihong Xiao",
+      "url" : "http://localhost:4000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Taihong Xiao Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+
+
+    
+
+<!-- start custom head snippets -->
+
+
+
+<link rel="apple-touch-icon" sizes="57x57" href="http://localhost:4000/images/apple-touch-icon-57x57.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="60x60" href="http://localhost:4000/images/apple-touch-icon-60x60.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="76x76" href="http://localhost:4000/images/apple-touch-icon-76x76.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="120x120" href="http://localhost:4000/images/apple-touch-icon-120x120.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="152x152" href="http://localhost:4000/images/apple-touch-icon-152x152.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="180x180" href="http://localhost:4000/images/apple-touch-icon-180x180.png?v=M44lzPylqQ">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/favicon-32x32.png?v=M44lzPylqQ" sizes="32x32">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/android-chrome-192x192.png?v=M44lzPylqQ" sizes="192x192">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/favicon-96x96.png?v=M44lzPylqQ" sizes="96x96">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/favicon-16x16.png?v=M44lzPylqQ" sizes="16x16">
+<link rel="manifest" href="http://localhost:4000/images/manifest.json?v=M44lzPylqQ">
+<link rel="mask-icon" href="http://localhost:4000/images/safari-pinned-tab.svg?v=M44lzPylqQ" color="#000000">
+<link rel="shortcut icon" href="/images/favicon.ico?v=M44lzPylqQ">
+<meta name="msapplication-TileColor" content="#000000">
+<meta name="msapplication-TileImage" content="http://localhost:4000/images/mstile-144x144.png?v=M44lzPylqQ">
+<meta name="msapplication-config" content="http://localhost:4000/images/browserconfig.xml?v=M44lzPylqQ">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="http://localhost:4000/assets/css/academicons.css"/>
+
+<!-- mathjax config similar to math.stackexchange -->
+<!-- <script type="text/x-mathjax-config"> -->
+<!-- MathJax.Hub.Config({ -->
+<!--     jax: ["input/TeX", "output/HTML-CSS"], -->
+<!--         tex2jax: { -->
+<!--                 inlineMath: [ ['$', '$'] ], -->
+<!--                 displayMath: [ ['$$', '$$']], -->
+<!--                 processEscapes: true, -->
+<!--                 skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] -->
+<!--                 }, -->
+<!--                 messageStyle: "none", -->
+<!--                 "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] } -->
+<!-- }); -->
+<!-- </script> -->
+<!-- <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/">Taihong Xiao</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/year-archive/">Blog Posts</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/publications/">Publications</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/talks/">Talks</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/teaching/">Teaching</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/cv/">CV</a></li>
+          
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  <div class="author__avatar">
+    
+    	<img src="http://localhost:4000/images/taihong.png" class="author__avatar" alt="Taihong Xiao">
+    
+  </div>
+
+  <div class="author__content">
+    <h3 class="author__name">Taihong Xiao</h3>
+    <p class="author__bio">Master Student at Peking University</p>
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> Beijing</li>
+      
+      
+      
+      
+        <li><a href="mailto:xiaotaihong@pku.edu.cn"><i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+      
+      
+      
+      
+        <li><a href="https://www.facebook.com/ulton.prinsphield"><i class="fa fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+      
+      
+      
+        <li><a href="https://www.linkedin.com/in/taihong-xiao-82459157"><i class="fa fa-fw fa-linkedin-square" aria-hidden="true"></i> LinkedIn</a></li>
+      
+      
+      
+      
+      
+      
+        <li><a href="https://github.com/prinsphield"><i class="fa fa-fw fa-github" aria-hidden="true"></i> Github</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        <li><a href="https://scholar.google.com/citations?user=Op_tr2IAAAAJ"><i class="ai ai-google-scholar-square ai-fw"></i> Google Scholar</a></li>
+      
+      
+      
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="翻墙方法总结">
+    <meta itemprop="description" content="hosts文件位置">
+    <meta itemprop="datePublished" content="February 02, 2016">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">翻墙方法总结
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+          
+        
+
+        
+        <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2016-02-02T00:00:00-08:00">February 02, 2016</time> </p>
+        
+
+
+        <!--  -->
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <h2 id="hosts文件位置">hosts文件位置</h2>
+
+<p>首先我们要根据系统找到hosts文件所在的位置</p>
+
+<ul>
+  <li>Windows: <code class="highlighter-rouge">C:\windows\system32\drivers\etc</code></li>
+  <li>Mac: <code class="highlighter-rouge">/private/etc/hosts</code></li>
+  <li>Linux: <code class="highlighter-rouge">/etc/hosts</code></li>
+  <li>Android: <code class="highlighter-rouge">/system/etc/hosts</code></li>
+  <li>iOS: <code class="highlighter-rouge">/etc/hosts</code></li>
+</ul>
+
+<p>请注意Linux下更改要记得<code class="highlighter-rouge">sudo</code>,而且最好保留一开始的localhost的地址。 Android用户需要获取root权限，iOS用户需要越狱。</p>
+
+<h2 id="如何获得hosts">如何获得hosts</h2>
+
+<p>下面给大家列举一些不断提供hosts更新的网站：</p>
+<ul>
+  <li><a href="http://laod.cn/hosts/2015-google-hosts.html">老D博客</a></li>
+  <li><a href="https://serve.netsh.org/pub/ipv4-hosts/">Netsh</a> 网站中可以选择你想要进行翻墙的网站，然后下面有个框可以复制出hosts。这个网站中有提供ipv6的hosts，如果你在大学里用的是教育网，那么你可以试试ipv6的hosts。</li>
+  <li><a href="http://pan.baidu.com/s/1kUvoncF">hosts文件配置工具</a>(密码: khn8)这个适合懒人操作。</li>
+</ul>
+
+<h2 id="检查hosts中地址是否有效">检查hosts中地址是否有效</h2>
+<p>找到之后只要替换可用的hosts文件即可，如何知道hosts上的地址可以用呢？我们可以尝试用<code class="highlighter-rouge">Ping</code>命令，去测试是否能连接那个网址。比如Windows下可以用(Win+R) 打开CMD，之后输入</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ping [ip address]
+</code></pre></div></div>
+
+<p>你就知道那个hosts中这个代理ip地址有没有用了。</p>
+
+<h2 id="其他工具和资源">其他工具和资源</h2>
+
+<ul>
+  <li><a href="http://pan.baidu.com/s/1mgR0haK">自由门7.39版</a>(密码：fng7)，适用于Windows，Ubuntu用户如果装过wine的也可以使用</li>
+  <li><a href="http://pan.baidu.com/s/1dEc339Z">xskywalker浏览器</a>(密码：vzq9)，长得很像Chrome，其实就是从Chrome改的，只是帮你配置好了翻墙</li>
+  <li><a href="http://pan.baidu.com/s/1pKlCHHx">火狐范免费版吉阿姨免配置包</a>(密码：pivz)，适用于Windows，非常方便</li>
+  <li><a href="http://pan.baidu.com/share/link?uk=1678373798&amp;shareid=148812518&amp;third=0&amp;adapt=pc&amp;fr=ftw">fqrouter</a>，适用于Android，需要root</li>
+  <li><a href="https://github.com/shadowsocks/shadowsocks-android/releases">shadowsocks</a>，适用于Android，需要root</li>
+  <li><a href="http://pan.baidu.com/s/1i4ylk4t">VPN master</a>(密码：gdod)，适用于Android，免root</li>
+  <li><a href="https://itunes.apple.com/cn/app/tian-xingvpn-wang-luo-jia/id1071016473?mt=8">天行VPN</a>，适用于iOS，非常好用而且永久免费</li>
+  <li><a href="https://github.com/bannedbook/fanqiang/wiki/Chrome%E4%B8%80%E9%94%AE%E7%BF%BB%E5%A2%99%E5%8C%85">Chrome一键翻墙包</a></li>
+  <li><a href="https://github.com/bannedbook/fanqiang/wiki/%E7%81%AB%E7%8B%90firefox%E4%B8%80%E9%94%AE%E7%BF%BB%E5%A2%99%E5%8C%85">firefox一键翻墙包</a></li>
+  <li><a href="http://www.zhiyanblog.com/goagent-chrome-switchyomega-proxy-2015-latest.html">Goagent+Chrome+SwitchyOmega翻墙</a></li>
+</ul>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://localhost:4000/tags/#翻墙" class="page__taxonomy-item" rel="tag">翻墙</a>
+    
+    </span>
+  </p>
+
+
+
+
+      </footer>
+
+      
+
+<section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/posts/2016/02/over_GFW" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/posts/2016/02/over_GFW" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http://localhost:4000/posts/2016/02/over_GFW" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/posts/2016/02/over_GFW" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+      
+
+
+  <nav class="pagination">
+    
+      <a href="http://localhost:4000/posts/2016/01/MSE_and_Bayes_estimation/" class="pagination--pager" title="Maximum Likelihood and Bayes Estimation
+">Previous</a>
+    
+    
+      <a href="http://localhost:4000/posts/2016/02/overview_opt_alg_deep_learning1/" class="pagination--pager" title="An Overview on Optimization Algorithms in Deep Learning 1
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+
+    </script>
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+<a href="/sitemap/">Sitemap</a>
+<!-- end custom footer snippets -->
+
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+    
+
+    
+      <li><a href="https://facebook.com/"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i> Facebook</a></li>
+    
+    
+      <li><a href="https://www.linkedin.com/in/taihong-xiao-82459157"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i> Linkedin</a></li>
+    
+    
+      <li><a href="http://github.com/prinsphield"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2017 Taihong Xiao. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>.</div>
+
+      </footer>
+    </div>
+
+    <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+  </body>
+</html>
+

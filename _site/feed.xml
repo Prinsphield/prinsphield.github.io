@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-11-19T03:41:05-08:00</updated><id>http://localhost:4000/</id><title type="html">Taihong Xiao</title><subtitle>Master Student at Peking University</subtitle><author><name>Taihong Xiao</name><email>xiaotaihong@pku.edu.cn</email></author><entry><title type="html">An Overview on Optimization Algorithms in Deep Learning 2</title><link href="http://localhost:4000/posts/2016/02/overview_opt_alg_deep_learning2/" rel="alternate" type="text/html" title="An Overview on Optimization Algorithms in Deep Learning 2" /><published>2016-02-04T00:00:00-08:00</published><updated>2016-02-04T00:00:00-08:00</updated><id>http://localhost:4000/posts/2016/02/overview_opt_alg_deep_learning2</id><content type="html" xml:base="http://localhost:4000/posts/2016/02/overview_opt_alg_deep_learning2/">&lt;div style=&quot;display:none&quot;&gt;
+$$\DeclareMathOperator{\E}{E}$$
+$$\DeclareMathOperator{\RMS}{RMS}$$
+&lt;/div&gt;
+
+&lt;p&gt;In the &lt;a href=&quot;/posts/2016/02/overview_opt_alg_deep_learning1/&quot;&gt;last article&lt;/a&gt;,
+I have introduced several basic optimization algorithms. However, those algorithms rely on the hyperparameter - the learning rate $\eta$ that has a significant impact on model performance. Though the use of momentum can go some way to alleviate these issues, it does so by introducing another hyperparameter $\rho$ that may be just as difficult to set as the original learning rate. In the face of this, it’s naturally to find other way to set learning rate automatically.&lt;/p&gt;
+
+&lt;h2 id=&quot;adagrad&quot;&gt;AdaGrad&lt;/h2&gt;
+
+&lt;p&gt;AdaGrad algorithm adapts the learning rates of all model parameters by scaling them inversely proportional to the accumulated sum of squared partial derivatives over all training iterations. The update rule for AdaGrad is as follows:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\Delta \theta = -{\eta\over \sqrt{\sum_{\tau=1}^t g_{\tau}^2}}g_t&lt;/script&gt;
+
+&lt;p&gt;Here the denominator computes the $l^2$ norm of all previous gradients on a per-dimension basis and $\eta$ is a global learning rate shared by all dimensions.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/extra/optimization/AdaGrad.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The AdaGrad algorithm relies on the first order information but has some properties of second order methods and annealing. Since the dynamic rate grows with the inverse of gradient magnitudes, large gradients have smaller learning rates and small gradients have large learning rates. This nice property, as in second order methods, makes progress along each dimension even out over time. This is very useful in deep learning model, because the scale of gradients in each layer varies by several orders of magnitude. Additionally, the denominator of the scaling coefficient has the same effects as annealing, reducing the learning rate over time.&lt;/p&gt;
+
+&lt;h2 id=&quot;rmsprop&quot;&gt;RMSprop&lt;/h2&gt;
+
+&lt;p&gt;The RMSprop algorithm addresses the deficiency of AdaGrad by changing the gradient accumulation into an exponentially weighted moving average. In deep networks, directions in parameter space with strong partial derivatives may flatten out early, so RMSprop introduces a new hyperparameter $\rho$ that controls the length scale of the moving average to prevent that from happening.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/extra/optimization/RMSprop.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;RMSprop with Nesterov momentum algorithm is shown below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/extra/optimization/RMSprop-Nesterov-momentum.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;adam&quot;&gt;Adam&lt;/h2&gt;
+
+&lt;p&gt;Adam is another adaptive learning rate algorithm presented below. It can been seen as a combination of RMSprop and momentum. Adam algorithm includes bias corrections to the estimates of both the first order moment and second order moment to prevent parameters from high bias early in training.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/extra/optimization/Adam.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;adadelta&quot;&gt;AdaDelta&lt;/h2&gt;
+
+&lt;p&gt;This method was derived from AdaGrad in order to improve upon the two main drawbacks of the method:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;the continual decay of learning rates throughout training;&lt;/li&gt;
+  &lt;li&gt;the need for a manually selected global learning rate.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Instead of accumulating the sum of squared gradients over all time, we restricted the window of past gradients that are accumulated to be some fixed size $w$ instead of size $t$ where $t$ is the current iteration as in AdaGrad. Since storing $w$ previous squared gradients is inefficient, our methods implements this accumulation as an exponentially decaying average of the squared gradients. Assume at time $t$ this running average is $\E(g^2)_t$ then we compute&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\E(g^2)_t = \rho \E(g^2)_{t-1} +(1-\rho)g_t^2&lt;/script&gt;
+
+&lt;p&gt;Since we require the square root of this quantity in the parameter updates, this effectively becomes the RMS of previous squared gradients up to time $t$&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\RMS(g)_t=\sqrt{\E(g^2)_t+\epsilon}&lt;/script&gt;
+
+&lt;p&gt;The resulting parameter update is then&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\Delta\theta = -{\eta\over \RMS(g)_t}g_t \tag 1\label{eq-1}&lt;/script&gt;
+
+&lt;p&gt;Since the RMS of the previous gradients is already presented in the denominator in \eqref{eq-1}, we considered a measure of the $\Delta\theta$ quantity in the numerator. By computing the exponentially decaying RMS over a window of size $w$ of previous $\Delta\theta$ to give the AdaDelta method:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\Delta\theta=-{\RMS(\Delta\theta)_{t-1}\over \RMS(g)_t}g_t&lt;/script&gt;
+
+&lt;p&gt;where the same constant $\epsilon$ is added to the numerator RMS as well to ensure progress continues to be made even if previous updates becomes small.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/extra/optimization/AdaDelta.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Extra boon: A pdf-format cheet sheet containing all these algorithms could be downloaded &lt;a href=&quot;/extra/algorithms.pdf&quot;&gt;here&lt;/a&gt; for reference.&lt;/p&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;</content><author><name>Taihong Xiao</name><email>xiaotaihong@pku.edu.cn</email></author><category term="Deep Learning" /><category term="Optimization" /><summary type="html">$$\DeclareMathOperator{\E}{E}$$ $$\DeclareMathOperator{\RMS}{RMS}$$</summary></entry><entry><title type="html">An Overview on Optimization Algorithms in Deep Learning 1</title><link href="http://localhost:4000/posts/2016/02/overview_opt_alg_deep_learning1/" rel="alternate" type="text/html" title="An Overview on Optimization Algorithms in Deep Learning 1" /><published>2016-02-04T00:00:00-08:00</published><updated>2016-02-04T00:00:00-08:00</updated><id>http://localhost:4000/posts/2016/02/overview_opt_alg_deep_learning1</id><content type="html" xml:base="http://localhost:4000/posts/2016/02/overview_opt_alg_deep_learning1/">&lt;p&gt;Recently, I have been learning about optimization algorithms in deep learning. And it is necessary,  I think, to sum them up, so I plan to write a series of articles about different kinds of these algorithms. This article will mainly talk about the basic optimization algorithms used in machine learning and deep learning.&lt;/p&gt;
+
+&lt;h2 id=&quot;gradient-descent&quot;&gt;Gradient Descent&lt;/h2&gt;
+
+&lt;p&gt;Gradient descent is the most basic gradient-based algorithm to train a deep model. Once we get the function, let’s say $L$, that needs to optimize, especially when the function is convex, we can easily apply this method to approach the minimum of a function. This method involves updating the model parameters $\theta$ with a small step in the direction of the gradient of the objective function. For the case of supervised learning with data pairs $(x^{(i)}, y^{(i)})$, we have&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\theta\leftarrow \theta + \epsilon\nabla_\theta \sum_t L(f(x^{(i)};\theta), y^{(i)};\theta).&lt;/script&gt;
+
+&lt;p&gt;where $\epsilon$ is the learning rate or the step size, that controls the size of the step the parameter takes in each iteration.&lt;/p&gt;
+
+&lt;h2 id=&quot;stochastic-gradient-descent-sgd&quot;&gt;Stochastic Gradient Descent (SGD)&lt;/h2&gt;
+
+&lt;p&gt;In spite of its impressive convergence property, batch gradient descent is rarely used in machine learning, because the cost of calculating the sum over gradient of each sample would be enormous when the number of training samples becomes large. A computationally efficient way is stochastic gradient descent in which we use the stochastic estimator of the gradient to perform its update. Based on the assumption that all samples are i.i.d, we sample one or a small suubset of $m$ training samples and compute their gradient. Then we use the gradient to update the parameter $\theta$.&lt;/p&gt;
+
+&lt;p&gt;When $m=1$, this algorithm is sometimes called &lt;em&gt;online gradient descent&lt;/em&gt;. When $m&amp;gt;1$, the algorithm is sometimes called &lt;em&gt;minibatch SGD&lt;/em&gt;. The algorithm is showed below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/extra/optimization/SGD.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;GD or SGD, cannot escape from the occasion: if the learning rate is too big, the weights may travel to and fro across the ravine and not converge to the minimum; if the learning rate is too small, it will take a long time to converge or coonverge to local minima. Thus, we need adjust the learning rate accordingly: if the error is falliing fairly consistently but slowly, increase the learning rate; if the error keeps getting worse or oscillates wildly, then we should reduce the learning rate. Is there any algorithms that adapt the learning rate automatically?&lt;/p&gt;
+
+&lt;h2 id=&quot;momentum-method&quot;&gt;Momentum Method&lt;/h2&gt;
+
+&lt;p&gt;One method of speeding up training is the momentum method. This is perhaps the simplest extension to SGD that has been sucessfully used for decades. The intuition behind momentum, as the name suggests, is derived from a physical interpretation of the optimization process. Imaging a ball is rolling on a slope, the track of the ball is a combination of velocity and the instantaneous force pulling the ball downhill. And the momentum plays a role in accumulating gradient contribution.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/extra/optimization/momentum.jpg&quot; width=&quot;400&quot; height=&quot;300&quot; alt=&quot;momentum&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Back to our optimization process, we want to accelerate progress along dimensions in which gradient consistently point in the same direction and to slow progress along dimensions where the sign of the gradient continues to change. This is done by keeping track of past parameter updates with an exponential decay:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align*}
+\Delta \theta &amp;\leftarrow \rho\Delta \theta + \eta g\\
+\theta &amp;\leftarrow \theta - \Delta \theta
+\end{align*} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;which is mathematically equivalent to&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align*}
+\Delta \theta &amp;\leftarrow \rho\Delta \theta - \eta g\\
+\theta &amp;\leftarrow \theta + \Delta \theta
+\end{align*} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;where $\rho$ is a constant controlling the decay of the previous parameter updates and $\eta$ is the learning rate. The algorithm is as follows.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/extra/optimization/SGD-momentum.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This gives a nice improvement over SGD when optimizing difficult cost surfaces. The issue occurred with SGD that a higher learning rate causes oscillations back and forth across the valley has been effectively solved, because the sign of gradient changes and thus the momentum term damps down these updates to slow progress across the valley. And the progress along the valley is unaffected.&lt;/p&gt;
+
+&lt;h2 id=&quot;nesterov-momentum&quot;&gt;Nesterov Momentum&lt;/h2&gt;
+
+&lt;p&gt;The standard momentum method first computes the gradient at the current location and then takes a big jump in the direction of the updated accumulated gradient. Ilya  Sutskever (2012 unpublished) suggested a new form of momentum that often works better. The better type of momentum is called Nesterov momentum that first make a big jump in the direction of the previous accumulated gradient, and then measure the gradient where you end up and make a correction. However, in the stochastic gradient case, Nesterov momentum does not improve the rate of convergence.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/extra/optimization/Nesterov Momentum.jpg&quot; alt=&quot;A picture of the Nesterov method&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The algorithm is as follows.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/extra/optimization/SGD-Nesterov-momentum.jpg&quot; /&gt;&lt;/p&gt;</content><author><name>Taihong Xiao</name><email>xiaotaihong@pku.edu.cn</email></author><category term="Deep Learning" /><category term="Optimization" /><summary type="html">Recently, I have been learning about optimization algorithms in deep learning. And it is necessary, I think, to sum them up, so I plan to write a series of articles about different kinds of these algorithms. This article will mainly talk about the basic optimization algorithms used in machine learning and deep learning.</summary></entry><entry><title type="html">翻墙方法总结</title><link href="http://localhost:4000/posts/2016/02/over_GFW" rel="alternate" type="text/html" title="翻墙方法总结" /><published>2016-02-02T00:00:00-08:00</published><updated>2016-02-02T00:00:00-08:00</updated><id>http://localhost:4000/posts/2016/02/over_GFW</id><content type="html" xml:base="http://localhost:4000/posts/2016/02/over_GFW">&lt;h2 id=&quot;hosts文件位置&quot;&gt;hosts文件位置&lt;/h2&gt;
+
+&lt;p&gt;首先我们要根据系统找到hosts文件所在的位置&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Windows: &lt;code class=&quot;highlighter-rouge&quot;&gt;C:\windows\system32\drivers\etc&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Mac: &lt;code class=&quot;highlighter-rouge&quot;&gt;/private/etc/hosts&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Linux: &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/hosts&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Android: &lt;code class=&quot;highlighter-rouge&quot;&gt;/system/etc/hosts&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;iOS: &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/hosts&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;请注意Linux下更改要记得&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo&lt;/code&gt;,而且最好保留一开始的localhost的地址。 Android用户需要获取root权限，iOS用户需要越狱。&lt;/p&gt;
+
+&lt;h2 id=&quot;如何获得hosts&quot;&gt;如何获得hosts&lt;/h2&gt;
+
+&lt;p&gt;下面给大家列举一些不断提供hosts更新的网站：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://laod.cn/hosts/2015-google-hosts.html&quot;&gt;老D博客&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://serve.netsh.org/pub/ipv4-hosts/&quot;&gt;Netsh&lt;/a&gt; 网站中可以选择你想要进行翻墙的网站，然后下面有个框可以复制出hosts。这个网站中有提供ipv6的hosts，如果你在大学里用的是教育网，那么你可以试试ipv6的hosts。&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/s/1kUvoncF&quot;&gt;hosts文件配置工具&lt;/a&gt;(密码: khn8)这个适合懒人操作。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;检查hosts中地址是否有效&quot;&gt;检查hosts中地址是否有效&lt;/h2&gt;
+&lt;p&gt;找到之后只要替换可用的hosts文件即可，如何知道hosts上的地址可以用呢？我们可以尝试用&lt;code class=&quot;highlighter-rouge&quot;&gt;Ping&lt;/code&gt;命令，去测试是否能连接那个网址。比如Windows下可以用(Win+R) 打开CMD，之后输入&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ping [ip address]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;你就知道那个hosts中这个代理ip地址有没有用了。&lt;/p&gt;
+
+&lt;h2 id=&quot;其他工具和资源&quot;&gt;其他工具和资源&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/s/1mgR0haK&quot;&gt;自由门7.39版&lt;/a&gt;(密码：fng7)，适用于Windows，Ubuntu用户如果装过wine的也可以使用&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/s/1dEc339Z&quot;&gt;xskywalker浏览器&lt;/a&gt;(密码：vzq9)，长得很像Chrome，其实就是从Chrome改的，只是帮你配置好了翻墙&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/s/1pKlCHHx&quot;&gt;火狐范免费版吉阿姨免配置包&lt;/a&gt;(密码：pivz)，适用于Windows，非常方便&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/share/link?uk=1678373798&amp;amp;shareid=148812518&amp;amp;third=0&amp;amp;adapt=pc&amp;amp;fr=ftw&quot;&gt;fqrouter&lt;/a&gt;，适用于Android，需要root&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/shadowsocks/shadowsocks-android/releases&quot;&gt;shadowsocks&lt;/a&gt;，适用于Android，需要root&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://pan.baidu.com/s/1i4ylk4t&quot;&gt;VPN master&lt;/a&gt;(密码：gdod)，适用于Android，免root&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://itunes.apple.com/cn/app/tian-xingvpn-wang-luo-jia/id1071016473?mt=8&quot;&gt;天行VPN&lt;/a&gt;，适用于iOS，非常好用而且永久免费&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/bannedbook/fanqiang/wiki/Chrome%E4%B8%80%E9%94%AE%E7%BF%BB%E5%A2%99%E5%8C%85&quot;&gt;Chrome一键翻墙包&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/bannedbook/fanqiang/wiki/%E7%81%AB%E7%8B%90firefox%E4%B8%80%E9%94%AE%E7%BF%BB%E5%A2%99%E5%8C%85&quot;&gt;firefox一键翻墙包&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.zhiyanblog.com/goagent-chrome-switchyomega-proxy-2015-latest.html&quot;&gt;Goagent+Chrome+SwitchyOmega翻墙&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Taihong Xiao</name><email>xiaotaihong@pku.edu.cn</email></author><category term="翻墙" /><summary type="html">hosts文件位置</summary></entry><entry><title type="html">Maximum Likelihood and Bayes Estimation</title><link href="http://localhost:4000/posts/2016/01/MSE_and_Bayes_estimation/" rel="alternate" type="text/html" title="Maximum Likelihood and Bayes Estimation" /><published>2016-01-29T00:00:00-08:00</published><updated>2016-01-29T00:00:00-08:00</updated><id>http://localhost:4000/posts/2016/01/MSE_and_Bayes_estimation</id><content type="html" xml:base="http://localhost:4000/posts/2016/01/MSE_and_Bayes_estimation/">&lt;div style=&quot;display:none&quot;&gt;
+$$\DeclareMathOperator{\E}{E}$$
+$$\DeclareMathOperator{\KL}{KL}$$
+$$\DeclareMathOperator{\Var}{Var}$$
+$$\DeclareMathOperator{\Bias}{Bias}$$
+&lt;/div&gt;
+&lt;p&gt;As we know, maximum likelihood estimation (MLE) and Bayes estimation (BE) are two kinds of methods for parameter estimation in machine learning. However, they are on behalf of different view but closely interconnected with each other. In this article, I would like to talk about the differences and connections of them.&lt;/p&gt;
+
+&lt;h2 id=&quot;maximum-likelihood-estimation&quot;&gt;Maximum Likelihood Estimation&lt;/h2&gt;
+
+&lt;p&gt;Consider a set of $N$ examples $\mathscr{X}=\{x^{(1)},\ldots, x^{(N)}\}$ drawn independently from the true but unknown data generating distribution $p_{data}(x)$.  Let $p_{model}(x; \theta)$ be a parametric family of probability distributions over the same space indexed by $\theta$.  In other words, $p_{model}(x;\theta)$ maps any $x$ to a real number estimating the true probability $p_{data}(x)$.&lt;/p&gt;
+
+&lt;p&gt;The maximum likelihood estimator for $\theta$ is then defined by&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\theta_{ML} = \mathop{\arg\max}_\theta p_{model}(\mathscr{X};\theta) = \mathop{\arg\max}_\theta \prod_{i=1}^N p_{model}(x^{(i)};\theta)&lt;/script&gt;
+
+&lt;p&gt;For convenience, we usually maximize the logarithm of that&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\theta_{ML} = \mathop{\arg\max}_\theta \sum_{i=1}^N \log p_{model}(x^{(i)};\theta)&lt;/script&gt;
+
+&lt;p&gt;Since rescaling the cost function does not change the result of $\mathop{\arg\max}$, so we can divide by $N$ to obtain a formula expressed as an expectation.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\theta_{ML} = \mathop{\arg\max}_\theta \E_{x\sim \hat{p}_{data}}\log p_{model}(x;\theta)&lt;/script&gt;
+
+&lt;p&gt;Maximizing something is equivalent to minimizing the negative of something, thus we have&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\theta_{ML} = \mathop{\arg\min}_\theta -\E_{x\sim \hat{p}_{data}}\log p_{model}(x;\theta)&lt;/script&gt;
+
+&lt;p&gt;One way to interprete MLE is to view what we are minimizing the dissimilarity between the experical distribution defined by training set and the model distribution, with the degree of dissimilarity between the two distributions measured by the KL divergence. The KL divergence is given by&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\KL(\hat{p}_{data}||p_{model})=\E_{x\sim \hat{p}_{data}}(\log \hat{p}_{data}(x) - \log p_{model}(x;\theta)).&lt;/script&gt;
+
+&lt;p&gt;Since the expectation of $\log \hat{p}_{data}(x)$ is a constant, we can see the optimal $\theta$ of maximum likelihood principle attempts to minimize the KL divergence.&lt;/p&gt;
+
+&lt;h2 id=&quot;bayes-estimation&quot;&gt;Bayes Estimation&lt;/h2&gt;
+
+&lt;p&gt;As discussed above, the frequentist perspective is the true parameter $\theta$ is fixed but unknown, while the MLE $\theta_{ML}$
+is a random variable on account of it being a function of the data. But the bayesian perspective on statistics is quite different.
+The data is intuitively observed rather than viewed randomly. They use prior probability distribution $p(\theta)$ to reflect some
+knowledge they know about the distribution to some degree. Now that we have observed a set of data samples
+$\mathscr{X}={x^{(1)},\ldots,x^{(N)}}$, we can recover possibility or our belief about a certain value $\theta$ by combining
+the prior with the conditional distribution $p(\mathscr{X}|\theta)$ via bayes formula&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(\theta|\mathscr{X}) = {p(\mathscr{X}|\theta)p(\theta)\over p(\mathscr{X})},&lt;/script&gt;
+
+&lt;p&gt;which is the posterior probability.&lt;/p&gt;
+
+&lt;p&gt;Unlike what we did in MLE, Bayes estimation was effected with respect to a full distribution over $\theta$.
+The quintessential idea of bayes estimation is minimizing conditional risk or expected loss function $R(\hat{\theta}|X)$, given by&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;R(\hat{\theta}|X) = \int_\Theta \lambda(\hat{\theta},\theta)p(\theta|X)d\theta,&lt;/script&gt;
+
+&lt;p&gt;where $\Theta$ is the parameter space of $\theta$. If we take the loss function to be quadratic function, i.e. $\lambda(\hat{\theta},\theta)=(\theta-\hat{\theta})^2$, then the bayes estimation of $\theta$ is&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\theta_{BE} = \E(\theta|X) = \int_\Theta \theta p(\theta|X)d\theta.&lt;/script&gt;
+
+&lt;p&gt;The proof is easy.&lt;/p&gt;
+
+&lt;p&gt;It is worth mentioning that in bayes learning, we need not to estimate $\theta$. Instead, we could give the probability distribution function of a sample $x$ directly. For example, after obsering $N$ data samples, the predicted distribution of the next example $x^{(N+1)}$, is given by&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(x^{(N+1)}|\mathscr{X}) = \int p(x^{(N+1)}|\theta)p(\theta|\mathscr{X})d\theta.&lt;/script&gt;
+
+&lt;h2 id=&quot;maximum-a-posteriori-estimation&quot;&gt;Maximum A Posteriori Estimation&lt;/h2&gt;
+
+&lt;p&gt;A more commonn way to estimate parameters is ccarried out using a so called maximum a posteriori (MAP) method. The MAP estimate choose the point of maximal posterior probability&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\theta_{MAP} = \mathop{\arg\max}_\theta p(\theta|\mathscr{X}) = \mathop{\arg\max}_\theta \log p(\mathscr{X}|\theta) + \log p(\theta)&lt;/script&gt;
+
+&lt;h2 id=&quot;relations&quot;&gt;Relations&lt;/h2&gt;
+
+&lt;p&gt;As we talked above, Maximizing likelihood function is equivalent to minimizing the KL divergence between model distribution and empirical distribution. In a bayesian view of this, we can say that MLE is equivalent to minimizing empirical risk when the loss function is taken to be the logarithm loss (cross entropy loss).&lt;/p&gt;
+
+&lt;p&gt;The advatage brought by introducing the influence of the prior on MAP estimate is to leverage the additional information other than the unpredicted data. This additional information helps us to reduce the variance in MAP point estimate in comparison to MLE, however at the expense of increasing the bias. A good example help illustrate this idea.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example: (Linear Regression)&lt;/strong&gt;   The problem is to find appropriate $w$ such that a mapping defined by&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;y=w^T x&lt;/script&gt;
+
+&lt;p&gt;gives the best prediction of $y$ over the entire training set $\mathscr{X}=\{x^{(1)}, \ldots,x^{(N)}\}$. Expressing the predition in a matrix form,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;y= \mathscr{X}^T w&lt;/script&gt;
+
+&lt;p&gt;Besides, let us asssume the conditional distribution of $y$ given $w$ and $\mathscr{X}$ is Gaussian distribution parametrized by mean vector $\mathscr{X}^T w$ and variance matrix $I$.
+In this case, the MLE gives an estimate&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{w}_{ML} = (\mathscr{X}^T\mathscr{X})^{-1}\mathscr{X}y. \tag 1 \label{eq-1}&lt;/script&gt;
+
+&lt;p&gt;We also assume the prior of $w$ is another Gaussian distribution parametrized by mean $0$ and variance matrix $\Lambda_0=\lambda_0I$. With the prior specified, we can now determine the posterior distribution over the model parameters.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned\*}
+p(w|\mathscr{X},y) &amp;\propto p(y|\mathscr{X},w)p(w)\\
+&amp;\propto \exp\left(-{1\over2}(y-\mathscr{X}w)^T(y-\mathscr{X}w)\right)\exp\left(-{1\over2}w^T\Lambda_0^{-1}w\right)\\
+&amp;\propto \exp\left(-{1\over2}\left(-2y^T\mathscr{X}w + w^T\mathscr{X}^T\mathscr{X}w + w^T\Lambda_0^{-1}w\right)\right)\\
+&amp;\propto \exp\left(-{1\over2}(w-\mu_N)^T\Lambda_N^{-1}(w-\mu_N)\right).
+\end{aligned\*} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;where&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align\*}
+\Lambda_N &amp;= (\mathscr{X}^T\mathscr{X} + \Lambda_0^{-1})^{-1}\\
+\mu_N &amp;= \Lambda_N\mathscr{X}^Ty
+\end{align\*} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;Thus the MAP estimate of the $w$ becomes&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\hat{w}_{MAP} = (\mathscr{X}^T\mathscr{X} + \lambda_0^{-1}I)^{-1}\mathscr{X}^T y. \tag 2 \label{eq-2}&lt;/script&gt;
+
+&lt;p&gt;Compared \eqref{eq-2} with \eqref{eq-1}, we see that the MAP estimate amounts to adding a weighted term related with variance of prior distribution in the parenthesis at the basis of MLE. Also, it is easy to show that the MLE is unbiased, i.e. $\E(\hat{w}_{ML})=w$ and that it has a variance given by&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\Var(\hat{w}_{ML})=(\mathscr{X}^T\mathscr{X})^{-1}. \tag 3\label{eq-3}&lt;/script&gt;
+
+&lt;p&gt;In order to derive the bias of the MAP estimate, we need to evaluate the expectation&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align*}
+\E(\hat{w}_{MAP}) &amp;= E(\Lambda_N \mathscr{X}^Ty)\\
+&amp;= \E(\Lambda_N \mathscr{X}^T(\mathscr{X}w + \epsilon))\\
+&amp;= \Lambda_N(\mathscr{X}^T\mathscr{X}w) + \Lambda_N\mathscr{X}^T \E(\epsilon)\\
+&amp;= (\mathscr{X}^T\mathscr{X} + \lambda_0^{-1}I)^{-1}\mathscr{X}^T\mathscr{X}w\\
+&amp;= (\mathscr{X}^T\mathscr{X} + \lambda_0^{-1}I)^{-1} (\mathscr{X}^T\mathscr{X} + \lambda_0^{-1}I - \lambda_0^{-1}I)w\\
+&amp;= (I - (\lambda_0\mathscr{X}^T\mathscr{X} + I)^{-1} )w
+\end{align*} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;Thus, the bias can be derived as&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\Bias(\hat{w}_{MAP}) = \E(\hat{w}_{MAP}) - w = -(\lambda_0\mathscr{X}^T\mathscr{X} + I)^{-1}w.&lt;/script&gt;
+
+&lt;p&gt;Therefore, we can conclude that the MAP estimate is unbiased, and as the variance of prior $\lambda_0 \to \infty$, the bias tends to $0$. And as the variance of the prior $\lambda_0 \to 0$, the bias tends to $w$. This case is exactly the ML estimate, because the variance tending to $\infty$ implies that the prior distribution is asymptotically uniform. In other words, knowing nothing about the prior distribution, we assign the same probability to every value of $w$.&lt;/p&gt;
+
+&lt;p&gt;Before computing the variance, we need to compute&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align*}
+\E(\hat{w}_{MAP}\hat{w}_{MAP}^T) &amp;= \E(\Lambda_N \mathscr{X}^T yy^T \mathscr{X} \Lambda_N)\\
+&amp;= \E(\Lambda_N \mathscr{X}^T (\mathscr{X}w+\epsilon)(\mathscr{X}w+\epsilon)^T \mathscr{X} \Lambda_N) \\
+&amp;= \Lambda_N \mathscr{X}^T\mathscr{X}ww^T\mathscr{X}^T\mathscr{X}\Lambda_N + \Lambda_N \mathscr{X}^T\E(\epsilon\epsilon^T)\mathscr{X}\Lambda_N \\
+&amp;= \Lambda_N \mathscr{X}^T\mathscr{X}ww^T\mathscr{X}^T\mathscr{X}\Lambda_N + \Lambda_N \mathscr{X}^T\mathscr{X}\Lambda_N \\
+&amp;= \E(\hat{w}_{MAP})\E(\hat{w}_{MAP})^T + \Lambda_N \mathscr{X}^T\mathscr{X}\Lambda_N.
+\end{align*} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;Therefore, the variance of the MAP estimate of our linear regression model is given by&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align*}
+\Var(\hat{w}_{MAP}) &amp;= \E(\hat{w}_{MAP}\hat{w}_{MAP}^T) - \E(\hat{w}_{MAP})\E(\hat{w}_{MAP})^T\\
+&amp;= \Lambda_N \mathscr{X}^T\mathscr{X}\Lambda_N\\
+&amp;= (\mathscr{X}^T\mathscr{X} + \lambda_0^{-1}I)^{-1}\mathscr{X}^T \mathscr{X}(\mathscr{X}^T\mathscr{X} + \lambda_0^{-1}I)^{-1}. \tag 4 \label{eq-4}
+\end{align*} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;It is perhaps difficult to compare \eqref{eq-3} and \eqref{eq-4}. But if we take a look at one-dimensional case, it becomes easier to see that, as long as $\lambda_0 &amp;gt;1$,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\Var(\hat{w}_{ML})={1\over \sum_{i=1}^N x_i^2} &gt; {\lambda_0\sum_{i=1}^N x_i^2\over (1+\lambda_0\sum_{i=1}^N x_i^2)^2 } = \Var(\hat{w}_{MAP}).&lt;/script&gt;
+
+&lt;p&gt;From the above analysis, we can see that the MAP estimate reduces the variance at the expense of increasing the bias. However, the goal is to prevent overfitting.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align}
+a &amp;= b\\
+c &amp;= d
+\end{align} %]]&gt;&lt;/script&gt;</content><author><name>Taihong Xiao</name><email>xiaotaihong@pku.edu.cn</email></author><category term="machine learning" /><summary type="html">$$\DeclareMathOperator{\E}{E}$$ $$\DeclareMathOperator{\KL}{KL}$$ $$\DeclareMathOperator{\Var}{Var}$$ $$\DeclareMathOperator{\Bias}{Bias}$$ As we know, maximum likelihood estimation (MLE) and Bayes estimation (BE) are two kinds of methods for parameter estimation in machine learning. However, they are on behalf of different view but closely interconnected with each other. In this article, I would like to talk about the differences and connections of them.</summary></entry></feed>
