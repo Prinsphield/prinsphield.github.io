@@ -102,13 +102,18 @@ As we talked above, Maximizing likelihood function is equivalent to minimizing t
 The advatage brought by introducing the influence of the prior on MAP estimate is to leverage the additional information other than the unpredicted data. This additional information helps us to reduce the variance in MAP point estimate in comparison to MLE, however at the expense of increasing the bias. A good example help illustrate this idea.
 
 **Example: (Linear Regression)**   The problem is to find appropriate $w$ such that a mapping defined by
+
 $$
 y=w^T x
-$$ gives the best prediction of $y$ over the entire training set $\mathscr{X}=\\{x^{(1)}, \ldots,x^{(N)}\\}$. Expressing the predition in a matrix form,
+$$
+
+gives the best prediction of $y$ over the entire training set $\mathscr{X}=\\{x^{(1)}, \ldots,x^{(N)}\\}$. Expressing the predition in a matrix form,
+
 $$
 y= \mathscr{X}^T w
-$$ Besides, let us asssume the conditional distribution of $y$ given $w$ and $\mathscr{X}$ is Gaussian distribution parametrized by mean vector $\mathscr{X}^T w$ and variance matrix $I$.
+$$
 
+Besides, let us asssume the conditional distribution of $y$ given $w$ and $\mathscr{X}$ is Gaussian distribution parametrized by mean vector $\mathscr{X}^T w$ and variance matrix $I$.
 In this case, the MLE gives an estimate
 
 $$
@@ -129,10 +134,10 @@ $$
 where
 
 $$
-\begin{align*}
+\begin{aligned*}
 \Lambda_N &= (\mathscr{X}^T\mathscr{X} + \Lambda_0^{-1})^{-1}\\
 \mu_N &= \Lambda_N\mathscr{X}^Ty
-\end{align*}
+\end{aligned*}
 $$
 
 Thus the MAP estimate of the $w$ becomes
