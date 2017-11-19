@@ -157,7 +157,7 @@ incremental: false
 
 
 # Markdown Processing
-kramdown:
+maruku: # kramdown:
   input: GFM
   hard_wrap: false
   auto_ids: true
