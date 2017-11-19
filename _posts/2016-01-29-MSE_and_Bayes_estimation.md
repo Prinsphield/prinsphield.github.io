@@ -190,9 +190,9 @@ Therefore, the variance of the MAP estimate of our linear regression model is gi
 
 $$
 \begin{align*}
-\Var(\hat{w}_{MAP}) = \E(\hat{w}_{MAP}\hat{w}_{MAP}^T) - \E(\hat{w}_{MAP})\E(\hat{w}_{MAP})^T\\
-= \Lambda_N \mathscr{X}^T\mathscr{X}\Lambda_N\\
-= (\mathscr{X}^T\mathscr{X} + \lambda_0^{-1}I)^{-1}\mathscr{X}^T \mathscr{X}(\mathscr{X}^T\mathscr{X} + \lambda_0^{-1}I)^{-1}. \tag 4 \label{eq-4}
+\Var(\hat{w}_{MAP}) &= \E(\hat{w}_{MAP}\hat{w}_{MAP}^T) - \E(\hat{w}_{MAP})\E(\hat{w}_{MAP})^T\\
+&= \Lambda_N \mathscr{X}^T\mathscr{X}\Lambda_N\\
+&= (\mathscr{X}^T\mathscr{X} + \lambda_0^{-1}I)^{-1}\mathscr{X}^T \mathscr{X}(\mathscr{X}^T\mathscr{X} + \lambda_0^{-1}I)^{-1}. \tag 4 \label{eq-4}
 \end{align*}
 $$
 
