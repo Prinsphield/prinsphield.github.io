@@ -3,16 +3,23 @@
 <!-- start custom head snippets -->
 
 {% if page.use_math %}
-<script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); </script>
 <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-      tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-                  processEscapes: true
-                      }
-                        });
+    MathJax.Hub.Config({
+        TeX: {
+        equationNumbers: {
+        <!-- autoNumber: "AMS" -->
+        }
+        },
+        tex2jax: {
+        inlineMath: [ ['$','$'] ],
+        displayMath: [ ['$$','$$'] ],
+        processEscapes: true,
+        }
+    });
 </script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/config/TeX-AMS-MML_HTMLorMML-full.js">
+</script>
 {% endif %}
 
 <link rel="apple-touch-icon" sizes="57x57" href="{{ base_path }}/images/apple-touch-icon-57x57.png?v=M44lzPylqQ">
