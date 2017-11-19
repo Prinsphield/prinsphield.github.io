@@ -2,6 +2,10 @@
 
 <!-- start custom head snippets -->
 
+{% if page.use_math %}
+      {% include mathjax_support %}
+{% endif %}
+
 <link rel="apple-touch-icon" sizes="57x57" href="{{ base_path }}/images/apple-touch-icon-57x57.png?v=M44lzPylqQ">
 <link rel="apple-touch-icon" sizes="60x60" href="{{ base_path }}/images/apple-touch-icon-60x60.png?v=M44lzPylqQ">
 <link rel="apple-touch-icon" sizes="72x72" href="{{ base_path }}/images/apple-touch-icon-72x72.png?v=M44lzPylqQ">
@@ -40,8 +44,5 @@
 <!-- </script> -->
 <!-- <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
 
-{% if page.use_math %}
-      {% include mathjax_support %}
-{% endif %}
 
 <!-- end custom head snippets -->
