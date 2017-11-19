@@ -204,9 +204,3 @@ $$
 
 From the above analysis, we can see that the MAP estimate reduces the variance at the expense of increasing the bias. However, the goal is to prevent overfitting.
 
-$$
-\begin{align}
-a &= b\\
-c &= d
-\end{align}
-$$
