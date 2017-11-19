@@ -206,7 +206,7 @@ From the above analysis, we can see that the MAP estimate reduces the variance a
 
 $$
 \begin{align}
-a %= b\\
+a &= b\\
 c &= d
 \end{align}
 $$
