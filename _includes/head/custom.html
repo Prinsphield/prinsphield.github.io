@@ -17,9 +17,7 @@ MathJax.Hub.Config({
         }
     });
 </script>
-<script type="text/javascript"
-    src="/assets//MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
+<script src="{{ "/static/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML" | prepend: site.baseurl }}"></script>
 {% endif %}
 
 <link rel="apple-touch-icon" sizes="57x57" href="{{ base_path }}/images/apple-touch-icon-57x57.png?v=M44lzPylqQ">
