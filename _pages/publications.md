@@ -6,7 +6,7 @@ author_profile: true
 use_math: true
 ---
 
-[[Google Scholar]]({https://scholar.google.com/citations?user=Op_tr2IAAAAJ})
+[[Google Scholar]](https://scholar.google.com/citations?user=Op_tr2IAAAAJ)
 [[DBLP]](http://dblp.uni-trier.de/pers/hd/x/Xiao:Taihong)
 
 {% if author.googlescholar %}
