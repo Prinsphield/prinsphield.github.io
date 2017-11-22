@@ -9,4 +9,4 @@ location: 'London, UK'
 ---
 
 [[Paper]](https://link.springer.com/chapter/10.1007%2F978-3-319-63315-2_9)
-[[GitHub]](https://github.com/Prinsphield/ILFPT)
+[[GitHub]](https://github.com/Prinsphield/GeneGAN)
