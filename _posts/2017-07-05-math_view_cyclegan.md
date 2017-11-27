@@ -8,7 +8,6 @@ tags:
 use_math: true
 ---
 
-### Failure case of CycleGAN
 
 Recently, CycleGAN is a very popular image translation method, which arouse many people's interests. Lots of people are busy with reproducing it or designing interesting image applications by replacing the training data. However, few people have thought about its limitations, though the original [paper](https://arxiv.org/pdf/1703.10593.pdf) gave some discussions about them.
 
@@ -20,7 +19,7 @@ A failure case of CycleGAN was given by the author himself.
 A failure case of CycleGAN.
 </div>
 
-### Limitations of CycleGAN
+## Limitations of CycleGAN
 
 We can actually obtain lots of information from this picture. 
 
@@ -38,7 +37,7 @@ Smile transfiguration.
 - Weak at learning the shape of object. It is impossible if we want to use CycleGAN to generating a round object from a quadrate object. 
 
 
-### The Reason Behind It
+## The Reason Behind It
 
 What cause these limitations of CycleGAN? Recall the structure of CycleGAN, there are two image domains $X$ and $Y$. 
 The ultimate goal of CycleGAN is to learn two maps $G$ and $F$, where $G$ maps domain $X$ to domain $Y$, and $F$ maps
@@ -72,5 +71,7 @@ Because the intrinsic dimensions of $X$ and $Y$ may not be the same.
 For example, if we want to do image translation between domain $X$ of facial images with eyeglasses and domain $Y$ of facial images without eyeglasses. Let's evaluate the intrinsic dimensions of two domains. The intrinsic dimension of domain $Y$ comes from the variety of facial images.
 However, the intrinsic dimension of domain $X$ is more than that, because the eyeglasses also varies. 
 
+In conclusion, the limitation of CycleGAN comes from the difference of intrinsic dimensions between source image domain and target image domain.
+If you are interested, please read our paper [GeneGAN](https://arxiv.org/abs/1705.04932) for an alternative method.
 
 
