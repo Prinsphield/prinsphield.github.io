@@ -24,8 +24,8 @@ A failure case of CycleGAN.
 
 We can actually obtain lots of information from this picture. 
 
-1. CycleGAN is not able to disentangle the object from the background. Putin and background are both zebraized at the same time, as shown the in the picture. 
-2. CycleGAN is suitable for global image style transfer, but weak at doing object transfiguration. 
+- CycleGAN is not able to disentangle the object from the background. Putin and background are both zebraized at the same time, as shown the in the picture. 
+- CycleGAN is suitable for global image style transfer, but weak at doing object transfiguration. 
 What is object transfiguration? We want to segment a certain part from an image and seamlessly implant it into another images. 
 For example, I want to generate a smiling face of a person by imitating the smile from another smiling face.
 <div align="center">
@@ -34,8 +34,8 @@ For example, I want to generate a smiling face of a person by imitating the smil
 <div align="center">
 Smile transfiguration.
 </div>
-3. Lack of diversity in generated images, or single-modal phenomenon. For example, we use CycleGAN to do image translation between two domains. One is facial images without eyeglasses, and the other on is facial images with eyeglasses. CycleGAN can generate novel images with eyeglasses from those images without eyeglasses, but the novel eyeglasses seems always to be a black sunglasses. This phenomenon was observed by Shuchang Zhou, who was very prescient. (see our paper [GeneGAN](https://arxiv.org/abs/1705.04932)) I believe Jun-Yan Zhu, the author CycleGAN has also noticed this limitation. Otherwise, he would not publish another paper [BiCycleGAN](https://papers.nips.cc/paper/6650-toward-multimodal-image-to-image-translation.pdf) to generate multi-modal images in NIPS 2017, right after ICCV 2017 submission deadline, though the idea of BiCycleGAN is somewhat simple and the training process is very similar to [IcGAN](https://arxiv.org/abs/1611.06355).
-4. Weak at learning the shape of object. It is impossible if we want to use CycleGAN to generating a round object from a quadrate object. 
+- Lack of diversity in generated images, or single-modal phenomenon. For example, we use CycleGAN to do image translation between two domains. One is facial images without eyeglasses, and the other on is facial images with eyeglasses. CycleGAN can generate novel images with eyeglasses from those images without eyeglasses, but the novel eyeglasses seems always to be a black sunglasses. This phenomenon was observed by Shuchang Zhou, who was very prescient. (see our paper [GeneGAN](https://arxiv.org/abs/1705.04932)) I believe Jun-Yan Zhu, the author CycleGAN has also noticed this limitation. Otherwise, he would not publish another paper [BiCycleGAN](https://papers.nips.cc/paper/6650-toward-multimodal-image-to-image-translation.pdf) to generate multi-modal images in NIPS 2017, right after ICCV 2017 submission deadline, though the idea of BiCycleGAN is somewhat simple and the training process is very similar to [IcGAN](https://arxiv.org/abs/1611.06355).
+- Weak at learning the shape of object. It is impossible if we want to use CycleGAN to generating a round object from a quadrate object. 
 
 
 ### The Reason Behind It
@@ -45,20 +45,18 @@ The ultimate goal of CycleGAN is to learn two maps $G$ and $F$, where $G$ maps d
 domain $Y$ to domain $X$. 
 
 <div align="center">
-<img src="/extra/cyclegan/cyclegan_framework.jpg" width="450">
+<img src="/extra/cyclegan/cyclegan_framework.png" width="450">
 </div> 
 <div align="center">
 CycleGAN framework.
 </div>
 
 Recalling a simple result in topology, [Invariance of domain](https://en.wikipedia.org/wiki/Invariance_of_domain) theorem  states
-
 > If $U$ is an open subset of $\mathbb{R}^n$ and $f:U\to \mathbb{R}^n$ is an injective continuous map, then $V = f(U)$ is an open 
 > and $f$ is a homeomorphism between $U$ and $V$.
 
 We will leave out the proof since it uses tools of algebraic topology.
 This theorem tells us an important consequence: 
-
 > $\mathbb{R}^n$ can not be homeomorphic to $\mathbb{R}^m$ if $m\neq n$. 
 > Indeed, no non-empty open subset of $\mathbb{R}^n$ can be homeomorphic to any open subset of $\mathbb{R}^m$ if $m\neq n$.
 
@@ -68,7 +66,7 @@ The cycle consistency guarantee that $G$ and $F$ are inverse to each other.
 Therefore the domain $X$ and domain $Y$ are homeomorphic.
 According to the theorem of invariance of domain, the intrinsic dimensions of $X$ and $Y$ should be the same.
 
-*This is the fundamental reason for its limitations!!!* 
+**This is the fundamental reason for its limitations!!!**
 Because the intrinsic dimensions of $X$ and $Y$ may not be the same.
 
 For example, if we want to do image translation between domain $X$ of facial images with eyeglasses and domain $Y$ of facial images without eyeglasses. Let's evaluate the intrinsic dimensions of two domains. The intrinsic dimension of domain $Y$ comes from the variety of facial images.
