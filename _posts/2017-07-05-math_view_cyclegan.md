@@ -51,25 +51,27 @@ CycleGAN framework.
 </div>
 
 Recalling a simple result in topology, [Invariance of domain](https://en.wikipedia.org/wiki/Invariance_of_domain) theorem  states
+
 > If $U$ is an open subset of $\mathbb{R}^n$ and $f:U\to \mathbb{R}^n$ is an injective continuous map, then $V = f(U)$ is an open 
 > and $f$ is a homeomorphism between $U$ and $V$.
 
 We will leave out the proof since it uses tools of algebraic topology.
 This theorem tells us an important consequence: 
+
 > $\mathbb{R}^n$ can not be homeomorphic to $\mathbb{R}^m$ if $m\neq n$. 
 > Indeed, no non-empty open subset of $\mathbb{R}^n$ can be homeomorphic to any open subset of $\mathbb{R}^m$ if $m\neq n$.
 
 Back to our discussion of CycleGAN, $G$ and $F$ are generally neural networks with auto-encoder structures, therefore continuous. 
 (The composition of continuous map is continuous.)
-The cycle consistency guarantee that $G$ and $F$ are inverse to each other. 
+The cycle consistency guarantees that $G$ and $F$ are inverse to each other. 
 Therefore the domain $X$ and domain $Y$ are homeomorphic.
 According to the theorem of invariance of domain, the intrinsic dimensions of $X$ and $Y$ should be the same.
 
 **This is the fundamental reason for its limitations!!!**
 Because the intrinsic dimensions of $X$ and $Y$ may not be the same.
 
-For example, if we want to do image translation between domain $X$ of facial images with eyeglasses and domain $Y$ of facial images without eyeglasses. Let's evaluate the intrinsic dimensions of two domains. The intrinsic dimension of domain $Y$ comes from the variety of facial images.
-However, the intrinsic dimension of domain $X$ is more than that, because the eyeglasses also varies. 
+For example, if we want to do image translation between domain $X$ of facial images with eyeglasses and domain $Y$ of facial images without eyeglasses. Let's compare the intrinsic dimensions of two domains. The intrinsic dimension of domain $Y$ comes from the variety of facial images.
+However, the intrinsic dimension of domain $X$ is more than that, because eyeglasses also varies, which increase the intrinsic dimensions.
 
 In conclusion, the limitation of CycleGAN comes from the difference of intrinsic dimensions between source image domain and target image domain.
 If you are interested, please read our paper [GeneGAN](https://arxiv.org/abs/1705.04932) for an alternative method.
