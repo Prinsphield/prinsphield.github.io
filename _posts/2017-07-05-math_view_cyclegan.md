@@ -1,5 +1,5 @@
 ---
-title: 'An Mathematical View towards CycleGAN'
+title: 'A Mathematical View towards CycleGAN'
 date: 2017-07-05
 permalink: /posts/2017/07/math_view_cyclegan/
 tags:
