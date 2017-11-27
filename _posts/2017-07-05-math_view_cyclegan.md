@@ -45,7 +45,7 @@ The ultimate goal of CycleGAN is to learn two maps $G$ and $F$, where $G$ maps d
 domain $Y$ to domain $X$. 
 
 <div align="center">
-<img src="/extra/cyclegan/cyclegan_framework.png" width="450">
+<img src="/extra/cyclegan/cyclegan_framework.png" width="250">
 </div> 
 <div align="center">
 CycleGAN framework.
