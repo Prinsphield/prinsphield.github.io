@@ -45,7 +45,7 @@ Publications
 
 Research and Work Experience
 ======
-* Research Intern, Megvii (Face++) Inc. 2017.01 - present<br>
+* Research Intern, Megvii (Face++) Inc. 2017.01 - 2017.11<br>
 Supervisor: Dr. [Shuchang Zhou](http://zsc.github.io/)
 
 * Research Assistant, School of Mathematical Sciences and Key Laboratory of Mathematics and Its Applications, Peking University, 2016.01 - present<br>
@@ -65,7 +65,7 @@ Talks
 
 Honors and Awards
 ======
-* National Scholarship, Peking University, 2015-2017 (about 1%, <b>for 3 consecutive years</b>)
+* National Scholarship, Peking University, 2015-2017 (<b>for 3 consecutive years</b> about $1\%^3$)
 * Excellent Academic Performance Award, Peking University, 2016
 * Outstanding Thesis Award in Shandong Province, Shandong University, 2015
 * National Encouragement Scholarship, Shandong University, 2013 (about 10%)
