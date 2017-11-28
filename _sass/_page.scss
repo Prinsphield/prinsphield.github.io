@@ -130,7 +130,7 @@
     }
 
     .wrapper {
-      padding-left: 1em;
+      padding-left: 0.5em;
       padding-right: 1em;
 
       @include breakpoint($x-large) {
@@ -161,7 +161,7 @@
 }
 
 .page__hero-image {
-  width: 110%;
+  width: 100%;
   height: auto;
   -ms-interpolation-mode: bicubic;
 }
