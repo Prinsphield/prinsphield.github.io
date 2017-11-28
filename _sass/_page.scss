@@ -130,8 +130,8 @@
     }
 
     .wrapper {
-      padding-left: 2em;
-      padding-right: 2em;
+      padding-left: 1em;
+      padding-right: 1em;
 
       @include breakpoint($x-large) {
         max-width: $x-large;
@@ -209,7 +209,7 @@
       overflow: hidden;
       padding: 0;
       position: absolute;
-      width: 1px;
+      width: 2px;
     }
   }
 }
