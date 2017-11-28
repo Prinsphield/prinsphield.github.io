@@ -8,5 +8,5 @@ author: 'Shuchang Zhou, Taihong Xiao, Yi Yang, Dieqiao Feng, Qinyao He and Weira
 location: 'London, UK'
 ---
 
-[[Paper]](https://link.springer.com/chapter/10.1007%2F978-3-319-63315-2_9)
+[[ArXiv]](https://arxiv.org/abs/1705.04932)
 [[GitHub]](https://github.com/Prinsphield/GeneGAN)
