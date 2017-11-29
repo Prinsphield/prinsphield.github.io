@@ -9,4 +9,6 @@ location: 'London, UK'
 ---
 
 [[ArXiv]](https://arxiv.org/abs/1705.04932)
+[[Slide]](http://zsc.github.io/GeneGAN-BMVC2017.pdf)
 [[GitHub]](https://github.com/Prinsphield/GeneGAN)
+
