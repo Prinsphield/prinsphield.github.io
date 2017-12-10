@@ -45,7 +45,7 @@ Publications
 
 Research and Work Experience
 ======
-* Research Intern, Megvii (Face++) Inc. 2017.01 - 2017.11<br>
+* Research Intern, Megvii (Face++) Inc. Beijing. 2017.01 - 2017.11<br>
 Supervisor: Dr. [Shuchang Zhou](http://zsc.github.io/)
 
 * Research Assistant, School of Mathematical Sciences and Key Laboratory of Mathematics and Its Applications, Peking University, 2016.01 - present<br>
