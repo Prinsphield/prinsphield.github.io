@@ -67,7 +67,7 @@ Honors and Awards
 ======
 * National Scholarship, Peking University, 2015-2017 (about $(1\%)^3$)
 * Excellent Academic Performance Award, Peking University, 2016
-* Outstanding Thesis Award in Shandong Province, Shandong University, 2015
+* Outstanding Thesis Award in Shandong Province, 2015
 * National Encouragement Scholarship, Shandong University, 2013 (about 10%)
 * Second-Class Scholarship for Outstanding Students, Shandong University, 2013
 * Second Prize in China Undergraduate Mathematical Contest in Modeling, Shandong, 2013
