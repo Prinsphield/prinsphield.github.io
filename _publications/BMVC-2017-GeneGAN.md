@@ -3,7 +3,7 @@ title: "GeneGAN: Learning Object Transfiguration and Attribute Subspace from Unp
 collection: publications
 permalink: /publication/BMVC-2017-GeneGAN
 date: 2017-05-04
-venue: 'British Machine Vision Conference (BMVC), <b> <span style="color:red">Oral</span> </b>'
+venue: 'British Machine Vision Conference (BMVC), <b><span style="color:red">Oral</span></b>'
 author: 'Shuchang Zhou, Taihong Xiao, Yi Yang, Dieqiao Feng, Qinyao He and Weiran He'
 location: 'London, UK'
 ---

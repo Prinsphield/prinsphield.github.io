@@ -3,7 +3,7 @@ title: "An Integrated Learning Framework for Pedestrian Tracking"
 collection: publications
 permalink: /publication/ICIC-2017-ILFPT
 date: 2017-03-01
-venue: 'International Conference on Intelligent Computing (ICIC), <b> <span style="color:red">Oral</span> </b>'
+venue: 'International Conference on Intelligent Computing (ICIC), <b><span style="color:red">Oral</span></b>'
 author: 'Taihong Xiao and Jinwen Ma'
 location: 'Liverpool, UK'
 ---
