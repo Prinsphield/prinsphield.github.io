@@ -20,7 +20,7 @@ Research Interests
 ======
 I am interested in fundamental problems in artificial intelligence, including computer vision,
 deep learning, machine learning.
-I recently focus on generative adversarial networks, image understanding, interpretable
+I currently focus on generative adversarial networks, image understanding, interpretable
 neural networks.
 
 Educations
@@ -76,7 +76,7 @@ Honors and Awards
 
 Skills
 ======
-* Adept at Linux, Python, LaTeX, TensorFlow, Matlab, Caffe, OpenCV, C
+* Adept at Linux, Python, LaTeX, TensorFlow, Pytorch, Matlab, Caffe, OpenCV, C
 * Solid background in mathematical induction, machine learning and numerical optimization
 * CET-6: 574, TOEFL: 101, GRE: 321 (aw: 4.0), GRE Math Subject: 910 (97%)
 
