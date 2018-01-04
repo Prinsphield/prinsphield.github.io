@@ -14,8 +14,8 @@ use_math: false
 如图所示，绿色的点代表小人当前的位置，红点代表目标位置。
 
 <div align="center">
-<img align="center" src="extra/wechat_jump/state_000.png" width="250" alt="state_000">
-<img align="center" src="extra/wechat_jump/state_000_res.png" width="250" alt="state_000_res">
+<img align="center" src="/extra/wechat_jump/state_000.png" width="250" alt="state_000">
+<img align="center" src="/extra/wechat_jump/state_000_res.png" width="250" alt="state_000_res">
 </div>
 <br/>
 
