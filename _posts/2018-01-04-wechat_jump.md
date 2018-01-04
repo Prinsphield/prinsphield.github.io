@@ -211,13 +211,15 @@ def forward(self, img, is_training, keep_prob, name='fine'):
 ### 总结
 针对这一问题，我们利用AI和CV技术，提出了合适适用于IOS和Android设备的完整解决方案，稍有技术背景的用户都可以实现成功配置、运行，我们提出了Multiscale-Search，Fast-Search，CNN Coarse-to-Fine三种解决这一问题的算法，三种算法相互配合，可以实现快速准确的搜索、跳跃，用户针对自己的设备稍加调整跳跃参数即可接近实现“永动机”。讲到这里，似乎可以宣布，我们的工作terminate了这个问题，微信小游戏跳一跳game over！
 
+![代码链接](https://github.com/Prinsphield/Wechat_AutoJump)
+
 **友情提示：适度游戏益脑，沉迷游戏伤身，技术手段的乐趣在于技术本身而不在游戏排名，希望大家理性对待游戏排名和本文提出的技术，用游戏娱乐自己的生活**
 
 **声明：本文提出的算法及开源代码符合MIT开源协议，以商业目的使用该算法造成的一切后果须由使用者本人承担**
 
 ### Contributors
-Xiao Taihong <xiaotaihong@126.com>
 
+Xiao Taihong <xiaotaihong@126.com>
 An Jie <jie.an@pku.edu.cn>
 
 
