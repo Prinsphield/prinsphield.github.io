@@ -64,7 +64,7 @@ def multi_scale_search(pivot, screen, range=0.3, num=10):
 不过这里的位置框的底部中心并不是小人的位置，真实的位置是在那之上一些。
 
 <div align="center">
-<img align="center" src="extra/wechat_jump/player_detection.png" width="250" alt="player">
+<img align="center" src="/extra/wechat_jump/player_detection.png" width="250" alt="player">
 </div>
 <br/>
 
@@ -79,7 +79,7 @@ def multi_scale_search(pivot, screen, range=0.3, num=10):
 就会又快有准了。效果见下图，蓝色框是（300，300）的搜索区域，红色框是搜到的台面，矩形中心就是目标点的坐标了。
 
 <div align="center">
-<img align="center" src="extra/wechat_jump/target_detection.png" width="250" alt="player">
+<img align="center" src="/extra/wechat_jump/target_detection.png" width="250" alt="player">
 </div>
 <br/>
 
@@ -120,7 +120,7 @@ def multi_scale_search(pivot, screen, range=0.3, num=10):
 
 我们观察到，游戏中，每一次当小人落在目标物中心位置时，下一个目标物的中心会出现一个白色的圆点，
 <div align="center">
-<img align="center" src="extra/wechat_jump/state_000.png" width="250" alt="state_000">
+<img align="center" src="/extra/wechat_jump/state_000.png" width="250" alt="state_000">
 </div>
 <br/>
 考虑到训练数据中fast-search会产生大量有白点的数据，为了杜绝白色圆点对网络训练的干扰，我们对每一张图进行了去白点操作，具体做法是，用白点周围的纯色像素填充白点区域。
@@ -128,7 +128,7 @@ def multi_scale_search(pivot, screen, range=0.3, num=10):
 ##### fine 模型数据预处理
 为了进一步提升模型的精度，我们为fine模型建立了数据集，对训练集中的每一张图，在目标点附近截取320*320大小的一块作为训练数据，
 <div align="center">
-<img align="center" src="extra/wechat_jump/piece.png" width="250" alt="piece">
+<img align="center" src="/extra/wechat_jump/piece.png" width="250" alt="piece">
 </div>
 <br/>
 为了防止网络学到trivial的结果，我们对每一张图增加了50像素的随机偏移。fine模型数据同样进行了去白点操作。
@@ -196,14 +196,14 @@ def forward(self, img, is_training, keep_prob, name='fine'):
 
 #### cascade
 <div align="center">
-<img align="center" src="extra/wechat_jump/we_jump_nn.png" width="750" alt="nn">
+<img align="center" src="/extra/wechat_jump/we_jump_nn.png" width="750" alt="nn">
 </div>
 <br/>
 
 <div align="center">
-<img align="center" src="extra/wechat_jump/nn1.png" width="250" alt="nn">
-<img align="center" src="extra/wechat_jump/nn2.png" width="250" alt="nn">
-<img align="center" src="extra/wechat_jump/nn3.png" width="250" alt="nn">
+<img align="center" src="/extra/wechat_jump/nn1.png" width="250" alt="nn">
+<img align="center" src="/extra/wechat_jump/nn2.png" width="250" alt="nn">
+<img align="center" src="/extra/wechat_jump/nn3.png" width="250" alt="nn">
 </div>
 <br/>
 总体精度1像素左右，时间0.6秒。
