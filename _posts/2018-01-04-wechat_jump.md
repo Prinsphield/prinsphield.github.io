@@ -104,8 +104,8 @@ def multi_scale_search(pivot, screen, range=0.3, num=10):
 
 这里有一个示例视频，欢迎观看!
 
-[![微信跳一跳](https://img.youtube.com/vi/OeTI2Kx8Ehc/0.jpg)](https://youtu.be/OeTI2Kx8Ehc "自动玩微信小游戏跳一跳")
-
+<!-- [![微信跳一跳](https://img.youtube.com/vi/OeTI2Kx8Ehc/0.jpg)](https://youtu.be/OeTI2Kx8Ehc "自动玩微信小游戏跳一跳") -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OeTI2Kx8Ehc" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
 到这里就结束了吗？那我们和业余玩家有什么区别？下面进入正经的学术时间，非战斗人员请迅速撤离！
 
@@ -116,7 +116,7 @@ def multi_scale_search(pivot, screen, range=0.3, num=10):
 基于我们非常准确的multiscale-search、fast-search模型，我们采集了7次实验数据，共计大约3000张屏幕截图，每一张截图均带有目标位置标注，对于每一张图，我们进行了两种不同的预处理方式，并分别用于训练coarse模型和fine模型，下面分别介绍两种不同的预处理方式。
 
 ##### coarse 模型数据预处理
-由于每一张图像中真正对于当前判断有意义的区域只在屏幕中央位置，即人和目标物体所在的位置，因此，每一张截图的上下两部分都是没有意义的，因此，我们将采集到的大小为1280*720的图像沿x方向上下各截去320*720大小，只保留中心640*720的图像作为训练数据。
+由于每一张图像中真正对于当前判断有意义的区域只在屏幕中央位置，即人和目标物体所在的位置，因此，每一张截图的上下两部分都是没有意义的，因此，我们将采集到的大小为(1280, 720)的图像沿x方向上下各截去(320, 720)大小，只保留中心(640, 720)的图像作为训练数据。
 
 我们观察到，游戏中，每一次当小人落在目标物中心位置时，下一个目标物的中心会出现一个白色的圆点，
 <div align="center">
