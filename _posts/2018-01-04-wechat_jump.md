@@ -219,8 +219,8 @@ def forward(self, img, is_training, keep_prob, name='fine'):
 
 ### Contributors
 
-Xiao Taihong <xiaotaihong@126.com>
-An Jie <jie.an@pku.edu.cn>
+- Xiao Taihong <xiaotaihong@126.com>
+- An Jie <jie.an@pku.edu.cn>
 
 
 
