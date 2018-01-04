@@ -1,5 +1,5 @@
 ---
-title: 'A Mathematical View towards CycleGAN'
+title: 'AI玩微信跳一跳的正确姿势'
 date: 2018-01-04
 permalink: /posts/2018/01/wechat_jump/
 tags:
