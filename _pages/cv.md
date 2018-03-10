@@ -77,6 +77,6 @@ Honors and Awards
 Skills
 ======
 * Adept at Linux, Python, LaTeX, TensorFlow, Pytorch, Matlab, Caffe, OpenCV, C
-* Solid background in mathematical induction, machine learning and numerical optimization
+* Solid background in mathematics, machine learning and numerical optimization
 * CET-6: 574, TOEFL: 101, GRE: 321 (aw: 4.0), GRE Math Subject: 910 (97%)
 
