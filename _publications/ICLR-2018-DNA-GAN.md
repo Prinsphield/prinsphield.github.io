@@ -11,4 +11,4 @@ location: 'Vancouver, BC, Canada'
 [[Paper]](https://openreview.net/pdf?id=rkX1FF_UM)
 [[ArXiv]](https://arxiv.org/abs/1711.05415v2)
 [[GitHub]](https://github.com/Prinsphield/DNA-GAN)
-
+[[Poster]](https://prinsphield.github.io/ICLR-2018/poster/poster.pdf)
