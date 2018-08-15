@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I am a final-year master student at Peking University.
+I am a first year PhD student at UC Merced under the supervision of Prof. [Ming-Hsuan Yang](http://faculty.ucmerced.edu/mhyang/).
 I am interested in computer vision, deep learning, and machine learning.
-<b>I plan to pursue an PhD degree in computer vision and deep learning starting from fall, 2018.</b>
-If you are interested in working with me, feel free to contact me.
+
+
