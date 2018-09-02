@@ -8,7 +8,12 @@ redirect_from:
   - /about.html
 ---
 
-I am a first year PhD student at UC Merced under the supervision of Prof. [Ming-Hsuan Yang](http://faculty.ucmerced.edu/mhyang/).
+I am a first year PhD student in [Vision and Learning Lab](http://vllab.ucmerced.edu) at UC Merced.
+My advisor is Prof. [Ming-Hsuan Yang](http://faculty.ucmerced.edu/mhyang/).
+Before that, I obtain my M.S. degree at School of Mathematical Sciences, Peking University in 2018
+and B.S. degree at Taishan College, Shandong University in 2015.
+
 I am interested in computer vision, deep learning, and machine learning.
-
-
+More specifically,
+- Generative Adversarial Networks
+- Privacy-Preserved Visual Recognition
