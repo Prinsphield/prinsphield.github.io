@@ -25,10 +25,10 @@ neural networks.
 
 Educations
 ======
-* Department of Electrical Engineering and Computer Science, University of California, Merced, 2018.08 - present<br>
+* Department of Electrical Engineering and Computer Science, University of California, Merced, 2018 - present<br>
 Ph.D. [Vision and Learning Lab](http://vllab.ucmerced.edu)
 
-* Department of Information Sciences, School of Mathematical Sciences, Peking University, 2015 - present<br>
+* Department of Information Sciences, School of Mathematical Sciences, Peking University, 2015 - 2018<br>
 M.S. Computer Vision, Deep Learning, Machine Learning<br>
 GPA: 90/100, Rank: 1/34
 
