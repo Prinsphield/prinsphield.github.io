@@ -12,9 +12,9 @@ use_math: true
 
 [Click to View My Curriculum Vitae [PDF]](https://prinsphield.github.io/CV/cv.pdf)
 
-Address: Peking University, Haidian District, Beijing, China, 100871<br>
-Phone: (86)18210929266<br>
-Email: [xiaotaihong@pku.edu.cn](mailto:xiaotaihong@pku.edu.cn)  [xiaotaihong@126.com](mailto:xiaotaihong@126.com)<br>
+Address: 311 SE 2 Building, UC Merced, CA, USA, 95343<br>
+Phone: (1)209-777-4840, (86)18210929266<br>
+Email: [txiao3@ucmerced.edu](mailto:txiao3@ucmerced.edu)  [xiaotaihong@126.com](mailto:xiaotaihong@126.com)<br>
 
 Research Interests
 ======
@@ -25,6 +25,9 @@ neural networks.
 
 Educations
 ======
+* Department of Electrical Engineering and Computer Science, University of California, Merced, 2018.08 - present<br>
+Ph.D. [Vision and Learning Lab](http://vllab.ucmerced.edu)
+
 * Department of Information Sciences, School of Mathematical Sciences, Peking University, 2015 - present<br>
 M.S. Computer Vision, Deep Learning, Machine Learning<br>
 GPA: 90/100, Rank: 1/34
@@ -45,6 +48,9 @@ Publications
 
 Research and Work Experience
 ======
+* Research Intern, Momenta Inc. Beijing. 2018.06-2018.08<br>
+Supervisor: Dr. Chaoqun Weng
+
 * Research Intern, Megvii (Face++) Inc. Beijing. 2017.01 - 2017.11<br>
 Supervisor: Dr. [Shuchang Zhou](http://zsc.github.io/)
 
