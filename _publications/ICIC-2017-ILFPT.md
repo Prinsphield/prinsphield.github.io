@@ -10,6 +10,7 @@ location: 'Liverpool, UK'
 
 [[Paper]](https://link.springer.com/chapter/10.1007%2F978-3-319-63315-2_9)
 [[Slide]](https://prinsphield.github.io/extra/ICIC-20170808.pdf)
+[[Video]](https://www.youtube.com/watch?v=HQIi0Z9b4Pw&feature=youtu.be)
 [[GitHub]](https://github.com/Prinsphield/ILFPT)
 
 Here is a demo video.
