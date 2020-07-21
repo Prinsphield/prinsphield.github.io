@@ -4,7 +4,7 @@ collection: publications
 permalink: /publication/ICLR-2018-DNA-GAN
 date: 2018-04-30
 venue: 'International Conference on Learning Representations (ICLR), Workshop Track'
-author: 'Taihong Xiao, Jiapeng Hong and Jinwen Ma'
+author: 'Taihong Xiao, Jiapeng Hong, Jinwen Ma'
 location: 'Vancouver, BC, Canada'
 ---
 

@@ -1,11 +1,11 @@
 ---
-title: "ELEGANT: Exchanging Latent Encodings with GAN for Transferring Multiple Face Attributes"
+title: "Learnable Cost Volume Using the Cayley Representation"
 collection: publications
-permalink: /publication/ECCV-2018-ELEGANT
-date: 2018-09-08
+permalink: /publication/ECCV-2020-LCV
+date: 2020-08-24
 venue: 'European Conference on Computer Vision (ECCV)'
-author: 'Taihong Xiao, Jiapeng Hong, Jinwen Ma'
-location: 'Munich, Germany'
+author: 'Taihong Xiao, Jinwei Yuan, Deqing Sun, Qifei Wang, Xin-Yu Zhang, Kehan Xu,  Ming-Hsuan Yang'
+location: 'Glasgow, UK'
 ---
 
 [[Paper]](http://openaccess.thecvf.com/content_ECCV_2018/papers/Taihong_Xiao_ELEGANT_Exchanging_Latent_ECCV_2018_paper.pdf)
