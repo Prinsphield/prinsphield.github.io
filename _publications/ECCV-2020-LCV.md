@@ -8,4 +8,7 @@ author: 'Taihong Xiao, Jinwei Yuan, Deqing Sun, Qifei Wang, Xin-Yu Zhang, Kehan 
 location: 'Glasgow, UK'
 ---
 
+[[Paper]](https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123540460.pdf)
 [[ArXiv]](https://arxiv.org/abs/2007.11431)
+[[GitHub]](https://github.com/Prinsphield/LCV)
+
