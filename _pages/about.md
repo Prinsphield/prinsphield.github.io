@@ -15,6 +15,8 @@ and B.S. degree at Taishan College, Shandong University in 2015.
 
 I am interested in computer vision, deep learning, and machine learning.
 More specifically,
+- Instance Matching
+- Semantic Correspondence
 - Self-Supervised Representation Learning
 - Video Motion and Analysis
 - Generative Adversarial Networks
