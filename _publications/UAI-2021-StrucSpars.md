@@ -8,6 +8,7 @@ author: 'Xin-Yu Zhang, Kai Zhao, Taihong Xiao, Ming-Ming Cheng, Ming-Hsuan Yang'
 location: 'Virtual'
 ---
 
+[[Paper]](https://www.auai.org/uai2021/pdf/uai2021.184.pdf)
 [[ArXiv]](https://arxiv.org/abs/2002.08127)
 [[Poster]](https://github.com/Sakura03/StrucSpars/raw/master/images/uai-poster.pdf)
 [[Slides]](https://github.com/Sakura03/StrucSpars/blob/master/images/full-slides.pdf)
