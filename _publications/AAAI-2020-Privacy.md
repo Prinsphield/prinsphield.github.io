@@ -8,7 +8,7 @@ author: 'Taihong Xiao, Yi-Hsuan Tsai, Kihyuk Sohn, Manmohan Chandraker, Ming-Hsu
 location: 'New York, USA'
 ---
 
-[[ArXiv]](https://arxiv.org/pdf/1911.10143.pdf)
+[[ArXiv]](https://arxiv.org/abs/1911.10143)
 [[Poster]](https://prinsphield.github.io/AAAI-2020-privacy/poster-1790.pdf)
 [[Slides]](https://prinsphield.github.io/AAAI-2020-privacy/slides.pdf)
 

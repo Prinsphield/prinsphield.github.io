@@ -9,5 +9,9 @@ location: 'Virtual'
 ---
 
 [[ArXiv]](https://arxiv.org/abs/2002.08127)
+[[Poster]](https://github.com/Sakura03/StrucSpars/raw/master/images/uai-poster.pdf)
+[[Slides]](https://github.com/Sakura03/StrucSpars/blob/master/images/full-slides.pdf)
+[[Video]](https://underline.io/lecture/28845-184-ii-d1-structured-sparsification-with-joint-optimization-of-group-convolution-and-channel-shuffle)
 [[GitHub]](https://github.com/Sakura03/StrucSpars)
+
 

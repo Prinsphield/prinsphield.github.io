@@ -11,7 +11,7 @@ location: 'Virtual'
 [[Paper]](http://proceedings.mlr.press/v130/xiao21a/xiao21a.pdf)
 [[Supplementary]](http://proceedings.mlr.press/v130/xiao21a/xiao21a-supp.pdf)
 [[ArXiv]](https://arxiv.org/abs/2007.03966)
-[[GitHub]](https://github.com/Sakura03/SemiMeta)
 [[Video]](https://slideslive.com/38952927)
+[[GitHub]](https://github.com/Sakura03/SemiMeta)
 
 
