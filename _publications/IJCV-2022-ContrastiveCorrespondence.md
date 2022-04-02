@@ -1,7 +1,7 @@
 ---
 title: "Learning Contrastive Representation for Semantic Correspondence"
 collection: publications
-permalink: /publication/Preprint-2021-ContrastiveCorrespondence
+permalink: /publication/IJCV-2022-ContrastiveCorrespondence
 date: 2022-02-21
 venue: 'International Journal of Computer Vision (IJCV)'
 author: 'Taihong Xiao, Sifei Liu, Shalini De Mello, Zhiding Yu, Jan Kautz, Ming-Hsuan Yang'
