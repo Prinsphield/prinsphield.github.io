@@ -8,7 +8,7 @@ author: 'Taihong Xiao, Sifei Liu, Shalini De Mello, Zhiding Yu, Jan Kautz, Ming-
 location: 'Anywhere'
 ---
 
-[[Paper]](https://trebuchet.public.springernature.app/get_content/93a4184a-fda0-4930-892e-515331427254)
+[[Paper]](https://link.springer.com/article/10.1007/s11263-022-01602-y)
 [[ArXiv]](https://arxiv.org/abs/2109.10967)
 
 
