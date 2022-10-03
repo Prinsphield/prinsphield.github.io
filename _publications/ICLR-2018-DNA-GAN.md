@@ -1,7 +1,7 @@
 ---
 title: "DNA-GAN: Learning Disentangled Representations from Multi-Attribute Images"
 collection: publications
-permalink: /publication/ICLR-2018-DNA-GAN
+permalink: /publications/ICLR-2018-DNA-GAN
 date: 2018-04-30
 venue: 'International Conference on Learning Representations (ICLR), Workshop Track'
 author: 'Taihong Xiao, Jiapeng Hong, Jinwen Ma'
