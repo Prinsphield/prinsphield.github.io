@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Taihong Xiao"
 title_separator          : "-"
 name                     : &name "Taihong Xiao"
-description              : &description "PhD Student at UC Merced"
+description              : &description "Software Engineer at Google Research"
 url                      : https://prinsphield.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "prinsphield.github.io"
@@ -80,11 +80,11 @@ analytics:
 author:
   name             : "Taihong Xiao"
   avatar           : "taihong.png"
-  bio              : "PhD Student at UC Merced"
-  location         : "Merced"
+  bio              : "Software Engineer at Google Research"
+  location         : "Mountain View, CA"
   employer         :
   googlescholar    : "https://scholar.google.com/citations?user=Op_tr2IAAAAJ"
-  email            : "txiao3@ucmerced.edu"
+  email            : "xiaotaihong@google.com"
   uri              :
   bitbucket        :
   codepen          :
