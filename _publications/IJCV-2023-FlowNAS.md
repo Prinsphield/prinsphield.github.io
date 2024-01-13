@@ -3,7 +3,7 @@ title: "FlowNAS: Neural Architecture Search for Optical Flow Estimation"
 collection: publications
 permalink: /publications/IJCV-2023-FlowNAS
 date: 2023-10-25
-venue: ' International Journal of Computer Vision (IJCV), '
+venue: ' International Journal of Computer Vision (IJCV)'
 author: 'Zhiwei Lin, Tingting Liang, Taihong Xiao, Yongtao Wang, Zhi Tang, Ming-Hsuan Yang'
 location: 'Anywhere'
 ---
