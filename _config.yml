@@ -80,7 +80,7 @@ analytics:
 author:
   name             : "Taihong Xiao"
   avatar           : "taihong.png"
-  bio              : "Software Engineer at Google Research"
+  bio              : "Ph.D."
   location         : "Mountain View, CA"
   employer         :
   googlescholar    : "https://scholar.google.com/citations?user=Op_tr2IAAAAJ"
@@ -90,12 +90,12 @@ author:
   codepen          :
   dribbble         :
   flickr           :
-  facebook         : "ulton.prinsphield"
+  facebook         : # "ulton.prinsphield"
   foursquare       :
   github           : "prinsphield"
   google_plus      :
   keybase          :
-  instagram        :
+  instagram        : "prinsphield"
   lastfm           :
   linkedin         : "taihong-xiao"
   orcid            : # "http://orcid.org/yourorcidurl"
