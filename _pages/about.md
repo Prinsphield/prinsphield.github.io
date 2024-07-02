@@ -14,6 +14,7 @@ and B.S. degree at Taishan College, Shandong University in 2015.
 
 I am interested in computer vision, deep learning, and machine learning.
 More specifically,
+- Generative Models for Understanding
 - Vision-Language Models
 - Semantic Correspondence
 - Self-Supervised Representation Learning
